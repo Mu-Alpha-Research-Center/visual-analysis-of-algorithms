@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/running-sum-of-1d-array/
+
 function runningSum(nums: number[]): number[] {
   var result = []
   for (let i = 0; i < nums.length; i++) {
