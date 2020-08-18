@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "devDependencies": {
+    "jest": "^26.4.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
