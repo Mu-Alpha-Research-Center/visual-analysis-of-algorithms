@@ -1,26 +1,6 @@
-//https://leetcode.com/problems/reverse-linked-list/
+// https://leetcode.com/problems/reverse-linked-list/
 
-class ListNode {
-  val: number
-  next: ListNode | null
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
-  }
-
-  static fromArray(...vals: any[]): ListNode {
-    let head = null,
-        curr = null
-    for (let val of vals) {
-      if (curr === null) {
-        head = curr = new ListNode(val)
-      } else {
-        curr = curr.next = new ListNode(val)
-      }
-    }
-    return head
-  }
-}
+import ListNode, { fromArray } from '../lib/ListNode'
 
 function reverseList(head: ListNode | null): ListNode | null {
   let prev = null,
@@ -35,6 +15,5 @@ function reverseList(head: ListNode | null): ListNode | null {
 }
 
 test('reverseList', () => {
-  expect(reverseList(ListNode.fromArray(1, 2, 3))).
-    toStrictEqual(ListNode.fromArray(3, 2, 1))
+  expect(reverseList(fromArray(1, 2, 3))).toStrictEqual(fromArray(3, 2, 1))
 })
