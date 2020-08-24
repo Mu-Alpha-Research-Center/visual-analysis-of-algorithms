@@ -13,8 +13,12 @@ function twoSum(nums: number[], target: number): number[] {
   return []
 }
 
-test('twoSum', () => {
-  expect(twoSum([2, 7, 11, 15], 9)).toStrictEqual([0, 1])
-  expect(twoSum([2, 7, 11, 15], 8)).toStrictEqual([])
-  expect(twoSum([3, 2, 4], 6)).toStrictEqual([1, 2])
+const testEach = test.each([
+  [[2, 7, 11, 15], 9, [0, 1]],
+  [[2, 7, 11, 15], 8, []],
+  [[3, 2, 4], 6, [1, 2]],
+])
+
+testEach('twoSum(%p, %p)', (a, b, expected) => {
+  expect(twoSum(a, b)).toStrictEqual(expected)
 })

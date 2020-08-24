@@ -16,17 +16,15 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return l1 ?? l2
 }
 
-test('mergeTwoLists', () => {
-  expect(mergeTwoLists(fromArray(), fromArray())).
-    toStrictEqual(fromArray())
-  expect(mergeTwoLists(fromArray(0), fromArray())).
-    toStrictEqual(fromArray(0))
-  expect(mergeTwoLists(fromArray(), fromArray(0))).
-    toStrictEqual(fromArray(0))
-  expect(mergeTwoLists(fromArray(1, 2, 4), fromArray(1, 3, 4))).
-    toStrictEqual(fromArray(1, 1, 2, 3, 4, 4))
-  expect(mergeTwoLists(fromArray(1, 3, 5), fromArray(2, 4))).
-    toStrictEqual(fromArray(1, 2, 3, 4, 5))
-  expect(mergeTwoLists(fromArray(1, 3), fromArray(2, 4, 5))).
-    toStrictEqual(fromArray(1, 2, 3, 4, 5))
+const testEach = test.each([
+  [[], [], []],
+  [[0], [], [0]],
+  [[], [0], [0]],
+  [[1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]],
+  [[1, 3, 5], [2, 4], [1, 2, 3, 4, 5]],
+  [[1, 3], [2, 4, 5], [1, 2, 3, 4, 5]],
+])
+
+testEach('mergeTwoLists(%p, %p)', (a, b, expected) => {
+  expect(mergeTwoLists(fromArray(a), fromArray(b))).toStrictEqual(fromArray(expected))
 })

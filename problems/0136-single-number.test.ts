@@ -17,9 +17,13 @@ function singleNumber(nums: number[]): number {
   return 0
 }
 
-test('singleNumber', () => {
-  expect(singleNumber([1])).toEqual(1)
-  expect(singleNumber([1, 0, 1])).toEqual(0)
-  expect(singleNumber([2, 2, 1])).toEqual(1)
-  expect(singleNumber([4, 1, 2, 1, 2])).toBe(4)
+const testEach = test.each([
+  [[1], 1],
+  [[1, 0, 1], 0],
+  [[2, 2, 1], 1],
+  [[4, 1, 2, 1, 2], 4],
+])
+
+testEach('singleNumber(%p)', (a, expected) => {
+  expect(singleNumber(a)).toEqual(expected)
 })

@@ -76,29 +76,33 @@ function isNumber(s: string): boolean {
   return true
 }
 
-test('isNumber', () => {
-  expect(isNumber('46.e3')).toBe(true)
-  expect(isNumber('+.8')).toBe(true)
-  expect(isNumber('.1')).toBe(true)
-  expect(isNumber('3.')).toBe(true)
-  expect(isNumber('0')).toBe(true)
-  expect(isNumber(' 0.1 ')).toBe(true)
-  expect(isNumber('2e10')).toBe(true)
-  expect(isNumber(' -90e3   ')).toBe(true)
-  expect(isNumber(' 6e-1')).toBe(true)
-  expect(isNumber('53.5e93')).toBe(true)
-  expect(isNumber(' ')).toBe(false)
-  expect(isNumber('.1.')).toBe(false)
-  expect(isNumber('abc')).toBe(false)
-  expect(isNumber('1 a')).toBe(false)
-  expect(isNumber('95a54e53')).toBe(false)
-  expect(isNumber(' 1e')).toBe(false)
-  expect(isNumber('e3')).toBe(false)
-  expect(isNumber(' 99e2.5 ')).toBe(false)
-  expect(isNumber(' --6 ')).toBe(false)
-  expect(isNumber('-+3')).toBe(false)
-  expect(isNumber('1 4')).toBe(false)
-  expect(isNumber('3-2')).toBe(false)
-  expect(isNumber('..2')).toBe(false)
-  expect(isNumber('6ee69')).toBe(false)
+const testEach = test.each([
+  ['46.e3', true],
+  ['+.8', true],
+  ['.1', true],
+  ['3.', true],
+  ['0', true],
+  [' 0.1 ', true],
+  ['2e10', true],
+  [' -90e3   ', true],
+  [' 6e-1', true],
+  ['53.5e93', true],
+  [' ', false],
+  ['.1.', false],
+  ['abc', false],
+  ['1 a', false],
+  ['95a54e53', false],
+  [' 1e', false],
+  ['e3', false],
+  [' 99e2.5 ', false],
+  [' --6 ', false],
+  ['-+3', false],
+  ['1 4', false],
+  ['3-2', false],
+  ['..2', false],
+  ['6ee69', false],
+])
+
+testEach('isNumber(%p)', (a, expected) => {
+  expect(isNumber(a)).toBe(expected)
 })

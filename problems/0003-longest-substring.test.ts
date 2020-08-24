@@ -26,10 +26,14 @@ function lengthOfLongestSubstring(s: string): number {
   return longestStr.length
 }
 
-test('lengthOfLongestSubstring', () => {
-  expect(lengthOfLongestSubstring('anviaj')).toBe(5)
-  expect(lengthOfLongestSubstring('dvdf')).toBe(3)
-  expect(lengthOfLongestSubstring('abcabcbb')).toBe(3)
-  expect(lengthOfLongestSubstring('bbbbb')).toBe(1)
-  expect(lengthOfLongestSubstring('pwwkew')).toBe(3)
+const testEach = test.each([
+  ['anviaj', 5],
+  ['dvdf',3],
+  ['abcabcbb', 3],
+  ['bbbbb', 1],
+  ['pwwkew', 3],
+])
+
+testEach('lengthOfLongestSubtring(%p)', (a, expected) => {
+  expect(lengthOfLongestSubstring(a)).toBe(expected)
 })

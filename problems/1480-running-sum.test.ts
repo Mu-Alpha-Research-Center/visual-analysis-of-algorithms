@@ -12,7 +12,11 @@ function runningSum(nums: number[]): number[] {
   return result
 };
 
-test('runningSum', () => {
-  expect(runningSum([1, 2, 3, 4])).toStrictEqual([1, 3, 6, 10])
-  expect(runningSum([1, 1, 1, 1, 1])).toStrictEqual([1, 2, 3, 4, 5])
+const testEach = test.each([
+  [[1, 2, 3, 4], [1, 3, 6, 10]],
+  [[1, 1, 1, 1, 1], [1, 2, 3, 4, 5]]
+])
+
+testEach('runningSum(%p)', (a, expected) => {
+  expect(runningSum(a)).toStrictEqual(expected)
 })

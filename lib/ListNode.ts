@@ -7,7 +7,7 @@ export default class ListNode {
   }
 }
 
-export function fromArray(...vals: any[]): ListNode {
+export function fromArray(vals: any[]): ListNode {
   let head = null,
       curr = null
   for (let val of vals) {

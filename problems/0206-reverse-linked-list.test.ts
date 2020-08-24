@@ -14,6 +14,12 @@ function reverseList(head: ListNode | null): ListNode | null {
   return prev
 }
 
-test('reverseList', () => {
-  expect(reverseList(fromArray(1, 2, 3))).toStrictEqual(fromArray(3, 2, 1))
+const testEach = test.each([
+  [[], []],
+  [[1], [1]],
+  [[1, 2, 3], [3, 2, 1]],
+])
+
+testEach('reverseList(%p)', (a, expected) => {
+  expect(reverseList(fromArray(a))).toStrictEqual(fromArray(expected))
 })

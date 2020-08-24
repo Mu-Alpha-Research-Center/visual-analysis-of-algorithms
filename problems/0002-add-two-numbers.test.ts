@@ -44,10 +44,11 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return head
 }
 
-test('addTwoNumbers', () => {
-  expect(addTwoNumbers(fromArray(9), fromArray(9))).
-    toStrictEqual(fromArray(8, 1))
-  expect(addTwoNumbers(fromArray(2, 4, 3), fromArray(5, 6, 4))).
-    toStrictEqual(fromArray(7, 0, 8))
-})
+const testEach = test.each([
+  [[9], [9], [8, 1]],
+  [[2, 4, 3], [5, 6, 4], [7, 0 ,8]],
+])
 
+testEach('addTwoNumbers(%p, %p)', (a, b, expected) => {
+  expect(addTwoNumbers(fromArray(a), fromArray(b))).toStrictEqual(fromArray(expected))
+})
