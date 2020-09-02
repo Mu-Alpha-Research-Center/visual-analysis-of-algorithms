@@ -33,9 +33,9 @@ function isNumber(s: string): boolean {
       i: number = 0,
       counts: Counts = getCounts(s)
 
-  const next = () => c = s[++i]
-  const nextWhile = (p) => { while (p(c)) next() }
-  const atEnd = () => i >= s.length
+  let next = () => c = s[++i]
+  let nextWhile = (p) => { while (p(c)) next() }
+  let atEnd = () => i >= s.length
 
   if (counts['.'] > 1) return false
   if (counts['e'] > 1) return false
@@ -76,7 +76,7 @@ function isNumber(s: string): boolean {
   return true
 }
 
-const testEach = test.each([
+let testEach = test.each([
   ['46.e3', true],
   ['+.8', true],
   ['.1', true],

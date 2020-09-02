@@ -14,7 +14,7 @@ function reverseList(head: ListNode | null): ListNode | null {
   return prev
 }
 
-const testEach = test.each([
+let testEach = test.each([
   [[], []],
   [[1], [1]],
   [[1, 2, 3], [3, 2, 1]],

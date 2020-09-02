@@ -35,7 +35,7 @@ function sortList(head: ListNode | null): ListNode | null {
   return head
 }
 
-const testEach = test.each([
+let testEach = test.each([
   [[], [], []],
   [[0], [], [0]],
   [[], [0], [0]],

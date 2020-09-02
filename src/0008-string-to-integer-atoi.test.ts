@@ -51,7 +51,7 @@ function myAtoi(str: string): number {
   return parseInt32(num)
 }
 
-const testEach = test.each([
+let testEach = test.each([
   ['42', 42],
   ['   -42', -42],
   ['4193 with words', 4193],

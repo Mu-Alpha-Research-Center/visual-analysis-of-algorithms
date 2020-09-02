@@ -26,7 +26,7 @@ function lengthOfLongestSubstring(s: string): number {
   return longestStr.length
 }
 
-const testEach = test.each([
+let testEach = test.each([
   ['anviaj', 5],
   ['dvdf',3],
   ['abcabcbb', 3],

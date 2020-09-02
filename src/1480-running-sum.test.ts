@@ -12,7 +12,7 @@ function runningSum(nums: number[]): number[] {
   return result
 };
 
-const testEach = test.each([
+let testEach = test.each([
   [[1, 2, 3, 4], [1, 3, 6, 10]],
   [[1, 1, 1, 1, 1], [1, 2, 3, 4, 5]]
 ])

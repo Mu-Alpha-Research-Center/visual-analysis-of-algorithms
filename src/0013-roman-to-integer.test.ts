@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/roman-to-integer
 
-const RomanNumeral: { [key: string]: number } = {
+let RomanNumeral: { [key: string]: number } = {
   I: 1,
   V: 5,
   X: 10,
@@ -20,7 +20,7 @@ function romanToInt(s: string): number {
   return result
 }
 
-const testEach = test.each([
+let testEach = test.each([
   ['III', 3],
   ['IV', 4],
   ['IX', 9],

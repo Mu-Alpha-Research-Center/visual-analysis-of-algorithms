@@ -4,7 +4,7 @@ function addBinary(a: string, b: string): string {
   return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2)
 }
 
-const testEach = test.each([
+let testEach = test.each([
   ['11', '1', '100'],
   ['1010', '1011', '10101'],
   [

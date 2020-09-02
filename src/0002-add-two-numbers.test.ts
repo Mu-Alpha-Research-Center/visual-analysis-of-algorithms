@@ -44,7 +44,7 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return head
 }
 
-const testEach = test.each([
+let testEach = test.each([
   [[9], [9], [8, 1]],
   [[2, 4, 3], [5, 6, 4], [7, 0 ,8]],
 ])

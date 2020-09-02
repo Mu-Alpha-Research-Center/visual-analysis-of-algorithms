@@ -17,7 +17,7 @@ function singleNumber(nums: number[]): number {
   return 0
 }
 
-const testEach = test.each([
+let testEach = test.each([
   [[1], 1],
   [[1, 0, 1], 0],
   [[2, 2, 1], 1],
