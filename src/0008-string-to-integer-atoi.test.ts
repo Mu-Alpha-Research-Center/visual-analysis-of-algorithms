@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/string-to-integer-atoi
 
+declare let runTests
+
 function isDigit(str: string): boolean {
   let digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
   for (let digit in digits) {
@@ -51,7 +53,7 @@ function myAtoi(str: string): number {
   return parseInt32(num)
 }
 
-let testEach = test.each([
+runTests(myAtoi, [
   ['42', 42],
   ['   -42', -42],
   ['4193 with words', 4193],
@@ -61,5 +63,3 @@ let testEach = test.each([
   ['+1', 1],
   ['2147483648', 2147483647]
 ])
-
-testEach('myAtoi(%p)', (a, expected) => expect(myAtoi(a)).toBe(expected))

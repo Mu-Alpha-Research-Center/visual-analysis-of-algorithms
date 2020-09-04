@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/remove-element
 
+declare let runTests
+
 function removeElement(nums: number[], val: number): number {
   let i = nums.length
   while (i > -1) {
@@ -11,11 +13,7 @@ function removeElement(nums: number[], val: number): number {
   return nums.length
 }
 
-let testEach = test.each([
+runTests(removeElement, [
   [[3, 2, 2, 3], 3, 2],
   [[0, 1, 2, 2, 3, 0, 4, 2], 2, 5]
 ])
-
-testEach('removeElement(%p, %p)', (a, b, expected) => {
-  expect(removeElement(a, b)).toBe(expected)
-})

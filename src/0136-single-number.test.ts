@@ -1,4 +1,6 @@
-// https://leetcode.com/problems/single-number/
+// https://leetcode.com/problems/single-number
+
+declare let runTests
 
 function singleNumber(nums: number[]): number {
   let counts: { [key:string]: number } = {}
@@ -17,13 +19,9 @@ function singleNumber(nums: number[]): number {
   return 0
 }
 
-let testEach = test.each([
+runTests(singleNumber, [
   [[1], 1],
   [[1, 0, 1], 0],
   [[2, 2, 1], 1],
-  [[4, 1, 2, 1, 2], 4],
+  [[4, 1, 2, 1, 2], 4]
 ])
-
-testEach('singleNumber(%p)', (a, expected) => {
-  expect(singleNumber(a)).toEqual(expected)
-})

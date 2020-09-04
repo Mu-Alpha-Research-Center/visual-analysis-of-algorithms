@@ -1,6 +1,8 @@
-// https://leetcode.com/problems/merge-two-sorted-lists/
+// https://leetcode.com/problems/merge-two-sorted-lists
 
-import ListNode, { fromArray } from '../lib/ListNode'
+import ListNode from '../lib/ListNode'
+
+declare let runTests
 
 function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
   let h: ListNode | null = null,
@@ -35,20 +37,14 @@ function sortList(head: ListNode | null): ListNode | null {
   return head
 }
 
-let testEach = test.each([
-  [[], [], []],
-  [[0], [], [0]],
-  [[], [0], [0]],
-  // [[5], [1, 2, 4], [1, 2, 4, 5]],
-  [[1], [2], [1, 2]],
-  [[2], [1], [1, 2]],
-  [[1, 3, 5], [2, 4], [1, 2, 3, 4, 5]],
-  [[1, 3], [2, 4, 5], [1, 2, 3, 4, 5]],
-  [[1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]],
+runTests(mergeTwoLists, [
+  [ListNode.from([]), ListNode.from([]), ListNode.from([])],
+  [ListNode.from([0]), ListNode.from([]), ListNode.from([0])],
+  [ListNode.from([]), ListNode.from([0]), ListNode.from([0])],
+  [ListNode.from([1]), ListNode.from([2]), ListNode.from([1, 2])],
+  [ListNode.from([2]), ListNode.from([1]), ListNode.from([1, 2])],
+  [ListNode.from([1, 3, 5]), ListNode.from([2, 4]), ListNode.from([1, 2, 3, 4, 5])],
+  [ListNode.from([1, 3]), ListNode.from([2, 4, 5]), ListNode.from([1, 2, 3, 4, 5])],
+  [ListNode.from([1, 2, 4]), ListNode.from([1, 3, 4]), ListNode.from([1, 1, 2, 3, 4, 4])],
+  //[ListNode.from([5]), ListNode.from([1, 2, 4]), ListNode.from([1, 2, 4, 5])],
 ])
-
-testEach('mergeTwoLists(%p, %p)', (a, b, expected) =>
-  expect(mergeTwoLists(fromArray(a), fromArray(b))).toStrictEqual(
-    fromArray(expected)
-  )
-)

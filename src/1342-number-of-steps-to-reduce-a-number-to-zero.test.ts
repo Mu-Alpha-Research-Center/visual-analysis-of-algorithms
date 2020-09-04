@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero
 
+declare let runTests
+
 function numberOfSteps(num: number): number {
   let steps = 0
   while (num > 0) {
@@ -13,10 +15,8 @@ function numberOfSteps(num: number): number {
   return steps
 }
 
-let testEach = test.each([
+runTests(numberOfSteps, [
   [14, 6],
   [8, 4],
   [123, 12],
 ])
-
-testEach('numberOfSteps(%p)', (a, expected) => expect(numberOfSteps(a)).toEqual(expected))

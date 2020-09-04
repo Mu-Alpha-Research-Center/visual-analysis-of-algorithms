@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/implement-strstr
 
+declare let runTests
+
 function strStr(haystack: string, needle: string): number {
   if (haystack.startsWith(needle)) {
     return 0
@@ -12,10 +14,8 @@ function strStr(haystack: string, needle: string): number {
   return -1
 }
 
-let testEach = test.each([
+runTests(strStr, [
   ['', '', 0],
   ['hello', 'll', 2],
   ['aaaaa', 'bba', -1]
 ])
-
-testEach('strStr(%p, %p)', (a, b, expected) => expect(strStr(a, b)).toBe(expected))

@@ -1,7 +1,9 @@
-// https://leetcode.com/problems/running-sum-of-1d-array/
+// https://leetcode.com/problems/running-sum-of-1d-array
+
+declare let runTests
 
 function runningSum(nums: number[]): number[] {
-  var result = []
+  let result = []
   for (let i = 0; i < nums.length; i++) {
     let sum = nums[i]
     for (let j = 0; j < i; j++) {
@@ -10,13 +12,9 @@ function runningSum(nums: number[]): number[] {
     result.push(sum)
   }
   return result
-};
+}
 
-let testEach = test.each([
+runTests(runningSum, [
   [[1, 2, 3, 4], [1, 3, 6, 10]],
   [[1, 1, 1, 1, 1], [1, 2, 3, 4, 5]]
 ])
-
-testEach('runningSum(%p)', (a, expected) => {
-  expect(runningSum(a)).toStrictEqual(expected)
-})

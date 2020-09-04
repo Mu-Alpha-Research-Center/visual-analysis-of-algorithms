@@ -1,9 +1,11 @@
-// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+// https://leetcode.com/problems/longest-substring-without-repeating-characters
+
+declare let runTests
 
 function lengthOfLongestSubstring(s: string): number {
-  let longestStr: string = '',
-      i: number = 0,
-      str: string = '',
+  let longestStr = '',
+      i = 0,
+      str = '',
       counts: { [key:string]: number } = {}
   while (i < s.length) {
     let c:string = s[i]
@@ -26,14 +28,10 @@ function lengthOfLongestSubstring(s: string): number {
   return longestStr.length
 }
 
-let testEach = test.each([
+runTests(lengthOfLongestSubstring, [
   ['anviaj', 5],
   ['dvdf',3],
   ['abcabcbb', 3],
   ['bbbbb', 1],
   ['pwwkew', 3],
 ])
-
-testEach('lengthOfLongestSubtring(%p)', (a, expected) => {
-  expect(lengthOfLongestSubstring(a)).toBe(expected)
-})

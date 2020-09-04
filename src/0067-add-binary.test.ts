@@ -1,10 +1,12 @@
-// https://leetcode.com/problems/add-binary/
+// https://leetcode.com/problems/add-binary
+
+declare let runTests
 
 function addBinary(a: string, b: string): string {
   return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2)
 }
 
-let testEach = test.each([
+runTests(addBinary, [
   ['11', '1', '100'],
   ['1010', '1011', '10101'],
   [
@@ -13,7 +15,3 @@ let testEach = test.each([
     '110111101100010011000101110110100000011101000101011001000011011000001100011110011010010011000000000'
   ]
 ])
-
-testEach('addBinary(%p)', (a, b, expected) => {
-  expect(addBinary(a, b)).toEqual(expected)
-})

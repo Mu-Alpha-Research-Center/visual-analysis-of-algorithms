@@ -1,7 +1,9 @@
 // https://leetcode.com/problems/integer-to-roman
 
+declare let runTests
+
 function intToRoman(num: number): string {
-  let result: string = ''
+  let result = ''
   let romanNumerals: { [key: string]: number } = {
     M: 1000,
     CM: 900,
@@ -17,23 +19,19 @@ function intToRoman(num: number): string {
     IV: 4,
     I: 1
   }
-
   for (let [romanNumeral, value] of Object.entries(romanNumerals)) {
     while (num >= value) {
       num -= value
       result += romanNumeral
     }
   }
-
   return result
 }
 
-let testEach = test.each([
+runTests(intToRoman, [
   [3, 'III'],
   [4, 'IV'],
   [9, 'IX'],
   [58, 'LVIII'],
-  [1994, 'MCMXCIV'],
+  [1994, 'MCMXCIV']
 ])
-
-testEach('intToRoman(%p)', (a, expected) => expect(intToRoman(a)).toBe(expected))

@@ -1,6 +1,8 @@
-// https://leetcode.com/problems/reverse-linked-list/
+// https://leetcode.com/problems/reverse-linked-list
 
-import ListNode, { fromArray } from '../lib/ListNode'
+import ListNode from '../lib/ListNode'
+
+declare let runTests
 
 function reverseList(head: ListNode | null): ListNode | null {
   let prev = null,
@@ -14,12 +16,8 @@ function reverseList(head: ListNode | null): ListNode | null {
   return prev
 }
 
-let testEach = test.each([
-  [[], []],
-  [[1], [1]],
-  [[1, 2, 3], [3, 2, 1]],
+runTests(reverseList, [
+  [ListNode.from([]), ListNode.from([])],
+  [ListNode.from([1]), ListNode.from([1])],
+  [ListNode.from([1, 2, 3]), ListNode.from([3, 2, 1])],
 ])
-
-testEach('reverseList(%p)', (a, expected) => {
-  expect(reverseList(fromArray(a))).toStrictEqual(fromArray(expected))
-})

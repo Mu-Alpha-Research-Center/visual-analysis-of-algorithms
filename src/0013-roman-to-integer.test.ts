@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/roman-to-integer
 
+declare let runTests
+
 let RomanNumeral: { [key: string]: number } = {
   I: 1,
   V: 5,
@@ -20,12 +22,10 @@ function romanToInt(s: string): number {
   return result
 }
 
-let testEach = test.each([
+runTests(romanToInt, [
   ['III', 3],
   ['IV', 4],
   ['IX', 9],
   ['LVIII', 58],
-  ['MCMXCIV', 1994],
+  ['MCMXCIV', 1994]
 ])
-
-testEach('romanToInt(%p)', (a, expected) => expect(romanToInt(a)).toBe(expected))

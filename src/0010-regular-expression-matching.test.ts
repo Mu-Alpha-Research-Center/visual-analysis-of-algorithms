@@ -1,15 +1,15 @@
 // https://leetcode.com/problems/regular-expression-matching
 
-function isMatch(s: string, p: string): boolean {
-  let match : boolean = true,
-      si    : number  = 0,
-      pi    : number  = 0
+declare let runTests
 
+function isMatch(s: string, p: string): boolean {
+  let match = true,
+      si    = 0,
+      pi    = 0
   while (pi < p.length) {
     let currChr:string = s[si],
         currPat:string = p[pi],
         nextPat:string = p[pi + 1]
-
     if (nextPat === '*') {
       if (currPat === '.') {
         while (si < s.length) si++ // .*
@@ -23,14 +23,12 @@ function isMatch(s: string, p: string): boolean {
       match = false
       break
     }
-
     pi++
   }
-
   return match && si >= s.length
 }
 
-let testEach = test.each([
+runTests(isMatch, [
   //['a', '.*..a*', false],
   ['ab', '.*..', true],
   //['aaa', 'ab*a*c*a', true],
@@ -43,7 +41,5 @@ let testEach = test.each([
   ['ab', '.*', true],
   ['aab', 'c*a*b', true],
   ['mississippi', 'mis*is*p*.', false],
-  ['mississippi', 'mis*is*ip*.', true],
+  ['mississippi', 'mis*is*ip*.', true]
 ])
-
-testEach('isMatch(%p, %p)', (a, b, expected) => expect(isMatch(a, b)).toBe(expected))

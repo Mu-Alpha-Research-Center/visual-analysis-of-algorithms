@@ -1,3 +1,5 @@
+declare let runTests
+
 function isDigit(s: string): boolean {
   let digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
   for (let digit in digits) {
@@ -14,39 +16,32 @@ function count(s: string, pattern: string): number {
   return n
 }
 
-type Counts = { [key:string]: number }
+type Counts = { [key: string]: number }
 
 function getCounts(s: string): Counts {
   let counts: Counts = {}
-
   for (let c of s) {
     counts[c] = c in counts ? counts[c] + 1 : 1
   }
-
   return counts
 }
 
 function isNumber(s: string): boolean {
   s = s.trim()
-
   let c: string,
       i: number = 0,
       counts: Counts = getCounts(s)
-
   let next = () => c = s[++i]
   let nextWhile = (p) => { while (p(c)) next() }
   let atEnd = () => i >= s.length
-
   if (counts['.'] > 1) return false
   if (counts['e'] > 1) return false
   if (counts['-'] > 1) return false
   if (counts['+'] > 1) return false
   if (s.length === 0) return false
   if (s[i] === 'e') return false
-
   while (!atEnd()) {
     c = s[i]
-
     if (c === '+' || c === '-' || c === '.') {
       next()
       if (!isDigit(c) && c !== '.') return false
@@ -72,11 +67,10 @@ function isNumber(s: string): boolean {
       return false
     }
   }
-
   return true
 }
 
-let testEach = test.each([
+runTests(isNumber, [
   ['46.e3', true],
   ['+.8', true],
   ['.1', true],
@@ -102,7 +96,3 @@ let testEach = test.each([
   ['..2', false],
   ['6ee69', false],
 ])
-
-testEach('isNumber(%p)', (a, expected) => {
-  expect(isNumber(a)).toBe(expected)
-})

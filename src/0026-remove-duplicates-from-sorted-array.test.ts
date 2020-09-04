@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array
 
+declare let runTests
+
 function removeDuplicates(nums: number[]): number {
   for (let i = 0; i < nums.length; i++) {
     let j = nums.length
@@ -13,11 +15,7 @@ function removeDuplicates(nums: number[]): number {
   return nums.length
 }
 
-let testEach = test.each([
+runTests(removeDuplicates, [
   [[1, 1, 2], 2],
   [[0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5]
 ])
-
-testEach('removeDuplicates(%p)', (a, expected) =>
-  expect(removeDuplicates(a)).toStrictEqual(expected)
-)

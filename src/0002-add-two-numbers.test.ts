@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/add-two-numbers/
 
-import ListNode, { fromArray } from '../lib/ListNode'
+import ListNode from '../lib/ListNode'
+
+declare let runTests
 
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
   let a: ListNode | null = l1,
@@ -44,11 +46,7 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return head
 }
 
-let testEach = test.each([
-  [[9], [9], [8, 1]],
-  [[2, 4, 3], [5, 6, 4], [7, 0 ,8]],
+runTests(addTwoNumbers, [
+  [ListNode.from([9]), ListNode.from([9]), ListNode.from([8, 1])],
+  [ListNode.from([2, 4, 3]), ListNode.from([5, 6, 4]), ListNode.from([7, 0 ,8])]
 ])
-
-testEach('addTwoNumbers(%p, %p)', (a, b, expected) => {
-  expect(addTwoNumbers(fromArray(a), fromArray(b))).toStrictEqual(fromArray(expected))
-})

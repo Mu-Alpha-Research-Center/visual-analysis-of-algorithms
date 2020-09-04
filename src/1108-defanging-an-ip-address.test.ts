@@ -1,12 +1,12 @@
 // https://leetcode.com/problems/defanging-an-ip-address
 
+declare let runTests
+
 function defangIPaddr(address: string): string {
   return address.replace(/\./g, '[.]')
 }
 
-let testEach = test.each([
+runTests(defangIPaddr, [
   ['1.1.1.1', '1[.]1[.]1[.]1'],
   ['255.100.50.0', '255[.]100[.]50[.]0']
 ])
-
-testEach('defangIPaddr(%p)', (a, expected) => expect(defangIPaddr(a)).toBe(expected))
