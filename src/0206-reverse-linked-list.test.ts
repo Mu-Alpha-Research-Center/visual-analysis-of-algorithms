@@ -1,8 +1,7 @@
 // https://leetcode.com/problems/reverse-linked-list
 
-import ListNode from '../lib/ListNode'
-
-declare let runTests
+import ListNode from './ListNode'
+import { runTests } from './TestHelpers'
 
 function reverseList(head: ListNode | null): ListNode | null {
   let prev = null,

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/defanging-an-ip-address
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function defangIPaddr(address: string): string {
   return address.replace(/\./g, '[.]')

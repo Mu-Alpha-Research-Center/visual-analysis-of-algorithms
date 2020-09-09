@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/implement-strstr
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function strStr(haystack: string, needle: string): number {
   if (haystack.startsWith(needle)) {

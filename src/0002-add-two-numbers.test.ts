@@ -1,8 +1,7 @@
 // https://leetcode.com/problems/add-two-numbers/
 
-import ListNode from '../lib/ListNode'
-
-declare let runTests
+import ListNode from './ListNode'
+import { runTests } from './TestHelpers'
 
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
   let a: ListNode | null = l1,

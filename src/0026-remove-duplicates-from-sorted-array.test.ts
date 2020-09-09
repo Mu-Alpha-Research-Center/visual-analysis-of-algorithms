@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function removeDuplicates(nums: number[]): number {
   for (let i = 0; i < nums.length; i++) {

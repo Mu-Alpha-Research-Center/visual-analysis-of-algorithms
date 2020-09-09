@@ -1,4 +1,5 @@
 module.exports = {
-  setupFiles: ['<rootDir>/jest.setup.ts'],
-  bail: true
-}
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  bail: true,
+};

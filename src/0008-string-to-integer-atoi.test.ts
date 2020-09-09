@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/string-to-integer-atoi
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function isDigit(str: string): boolean {
   let digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -29,7 +29,6 @@ function myAtoi(str: string): number {
   let chomp = () => {
     let c = str[pos]
     num += c
-    // console.log({ pos, c, num })
     pos++
   }
 

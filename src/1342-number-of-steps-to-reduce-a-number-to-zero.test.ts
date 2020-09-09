@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function numberOfSteps(num: number): number {
   let steps = 0

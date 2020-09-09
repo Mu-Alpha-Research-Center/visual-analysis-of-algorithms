@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/running-sum-of-1d-array
 
-declare let runTests
+import { runTests } from './TestHelpers'
 
 function runningSum(nums: number[]): number[] {
   let result = []
