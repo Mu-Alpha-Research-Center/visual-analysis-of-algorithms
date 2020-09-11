@@ -3,15 +3,15 @@ import * as prettyFormat from 'pretty-format'
 type TestableFunction = (...args: any[]) => any
 
 export const runTests = (func: TestableFunction, tests: any[]): void => {
-  let todos = tests.filter(t => isTodo(t)),
-      notTodos = tests.filter(t => !isTodo(t))
-
-  tests.filter(isTodo).forEach(t => test.todo(getTestName(func, t.slice(0, -1))))
-
-  if (notTodos.length === 0) return
-
-  test.each(notTodos)(getTestName(func), (...args) => {
-    expect(func(...args)).toStrictEqual(args.pop())
+  tests.forEach((t, i) => {
+    if (!isTodo(t)) return
+    test.todo(getTestName(func, t))
+    delete tests[i]
+  })
+  if (!tests.length) return
+  test.each(tests)(getTestName(func), (...args) => {
+    let expected = args.pop()
+    expect(func(...args)).toStrictEqual(expected)
   })
 }
 
@@ -21,7 +21,6 @@ function isTodo(t: any[]): boolean {
 
 function getTestName(func: TestableFunction, args: any[] = null): string {
   let testName = func.name
-
   testName += '('
   for (let i = 0; i < func.length; i++) {
     if (args) {
@@ -32,6 +31,5 @@ function getTestName(func: TestableFunction, args: any[] = null): string {
     if (i !== func.length - 1) testName += ', '
   }
   testName += ')'
-
   return testName
 }
