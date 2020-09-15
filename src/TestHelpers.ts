@@ -2,7 +2,7 @@ import * as prettyFormat from 'pretty-format'
 
 type TestableFunction = (...args: any[]) => any
 
-export const runTests = (func: TestableFunction, tests: any[]): void => {
+export const runTests = (func: TestableFunction, tests: any[][]): void => {
   tests.forEach((t, i) => {
     if (!isTodo(t)) return
     test.todo(getTestName(func, t))
