@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number
 
-import { runTests } from './TestHelpers'
+import { runTests, todo } from './TestHelpers'
 
 function digitToLetters(digit: string): string {
   let letters = {
@@ -21,5 +21,5 @@ function letterCombinations(digits: string): string[] {
 }
 
 runTests(letterCombinations, [
-  ['23', 'todo']
+  todo(['23'])
 ])

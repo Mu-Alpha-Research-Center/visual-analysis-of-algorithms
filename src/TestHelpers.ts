@@ -1,35 +1,48 @@
 import * as prettyFormat from 'pretty-format'
 
-type TestableFunction = (...args: any[]) => any
+type Test = any[] | TodoTest
 
-export const runTests = (func: TestableFunction, tests: any[][]): void => {
-  tests.forEach((t, i) => {
-    if (!isTodo(t)) return
-    test.todo(getTestName(func, t))
-    delete tests[i]
-  })
-  if (!tests.length) return
-  test.each(tests)(getTestName(func), (...args) => {
-    let expected = args.pop()
-    expect(func(...args)).toStrictEqual(expected)
-  })
+type TestFunc = (...args: any[]) => any
+
+class TodoTest {
+  length: number = 0
+
+  constructor(test: Test) {
+    for (let i = 0; i < test.length; i++) {
+      this[i] = test[i]
+    }
+  }
 }
 
-function isTodo(t: any[]): boolean {
-  return t[t.length - 1] === 'todo'
+export const todo = (test: Test): TodoTest => new TodoTest(test)
+
+export const runTests = (func: TestFunc, tests: Test[]): void => {
+  for (let i = 0; i < tests.length; i++) {
+    let t = tests[i];
+    if (t instanceof TodoTest) {
+      test.todo(getTestName(func, t))
+      delete tests[i]
+    }
+  }
+  if (tests.length) {
+    test.each(tests)(getTestName(func), (...args) => {
+      let expected = args.pop()
+      expect(func(...args)).toStrictEqual(expected)
+    })
+  }
 }
 
-function getTestName(func: TestableFunction, args: any[] = null): string {
-  let testName = func.name
-  testName += '('
+function getTestName(func: TestFunc, test?: Test): string {
+  let testName = func.name + '('
   for (let i = 0; i < func.length; i++) {
-    if (args) {
-      testName += prettyFormat(args[i])
+    if (test) {
+      testName += prettyFormat(test[i])
     } else {
       testName += '%p'
     }
-    if (i !== func.length - 1) testName += ', '
+    if (i !== func.length - 1) {
+      testName += ', '
+    }
   }
-  testName += ')'
-  return testName
+  return testName + ')'
 }

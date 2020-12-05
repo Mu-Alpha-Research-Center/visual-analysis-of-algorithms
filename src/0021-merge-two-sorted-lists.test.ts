@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/merge-two-sorted-lists
 
 import ListNode from './ListNode'
-import { runTests } from './TestHelpers'
+import { runTests, todo } from './TestHelpers'
 
 function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
   let h: ListNode | null = null,
@@ -45,5 +45,5 @@ runTests(mergeTwoLists, [
   [ListNode.from([1, 3, 5]), ListNode.from([2, 4]), ListNode.from([1, 2, 3, 4, 5])],
   [ListNode.from([1, 3]), ListNode.from([2, 4, 5]), ListNode.from([1, 2, 3, 4, 5])],
   [ListNode.from([1, 2, 4]), ListNode.from([1, 3, 4]), ListNode.from([1, 1, 2, 3, 4, 4])],
-  [ListNode.from([5]), ListNode.from([1, 2, 4]), ListNode.from([1, 2, 4, 5]), 'todo'],
+  todo([ListNode.from([5]), ListNode.from([1, 2, 4]), ListNode.from([1, 2, 4, 5])]),
 ])
