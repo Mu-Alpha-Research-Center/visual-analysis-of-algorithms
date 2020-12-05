@@ -1,6 +1,6 @@
 {
-  "name": "leetcode-solutions",
-  "description": "Various LeetCode solutions.",
+  "name": "project-200-hours",
+  "description": "...",
   "licence": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.9",
