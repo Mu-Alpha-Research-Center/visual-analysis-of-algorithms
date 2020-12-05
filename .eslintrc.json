@@ -24,7 +24,8 @@
     "@typescript-eslint/no-explicit-any": "off",
     "prefer-const": "off",
     "prefer-rest-params": "off",
-    "no-empty": "off"
+    "no-empty": "off",
+    "no-constant-condition": "off"
   },
   "settings": {
     "import/resolver": {
