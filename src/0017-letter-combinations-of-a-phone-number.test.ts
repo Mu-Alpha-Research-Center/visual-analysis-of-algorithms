@@ -27,8 +27,8 @@ function letterCombinations(digits: string): string[] {
 }
 
 runTests(letterCombinations, [
-  ['', []],
-  ['2', ['a', 'b', 'c']],
+  todo(['', []]),
+  todo(['2', ['a', 'b', 'c']]),
   todo(['23', ['ad','ae','af','bd','be','bf','cd','ce','cf']]),
   todo(['234', ['adg','adh','adi','aeg','aeh','aei','afg','afh','afi','bdg','bdh','bdi','beg','beh','bei','bfg','bfh','bfi','cdg','cdh','cdi','ceg','ceh','cei','cfg','cfh','cfi']])
 ])
