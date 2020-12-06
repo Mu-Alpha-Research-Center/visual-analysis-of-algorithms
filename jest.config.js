@@ -3,6 +3,5 @@ module.exports = {
   testEnvironment: 'node',
   bail: true,
   noStackTrace: true,
-  //collectCoverage: true,
   changedSince: 'master'
 };
