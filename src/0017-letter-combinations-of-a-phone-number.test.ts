@@ -17,9 +17,10 @@ function digitsToLetters(digits: string): string[] {
 
 function letterCombinations(digits: string): string[] {
   let toCombine: string[] = digitsToLetters(digits)
+
   return []
 }
 
 runTests(letterCombinations, [
-  todo(['23'])
+  todo(['23', []])
 ])

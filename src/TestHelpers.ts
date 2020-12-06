@@ -26,6 +26,12 @@ export const runTests = (func: TestFunc, tests: Test[]): void => {
   }
   if (tests.length) {
     test.each(tests)(getTestName(func), (...args) => {
+      if (args.length === 0) {
+        throw `Error: Test is empty: [].`
+      } else if (args.length === 1) {
+        args.push('?')
+        throw `Error: Test missing expected return value: [${args}].`
+      }
       let expected = args.pop()
       expect(func(...args)).toStrictEqual(expected)
     })
