@@ -2,9 +2,9 @@ export default class ListNode {
   val: number
   next: ListNode | null
 
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = (val === undefined ? null : val)
-    this.next = (next === undefined ? null : next)
+  constructor(val: number | null = null, next: ListNode | null = null) {
+    this.val = val
+    this.next = next
   }
 
   static from(vals: any[]): ListNode {
