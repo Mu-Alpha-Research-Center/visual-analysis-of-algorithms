@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/reverse-linked-list
 
-import ListNode from './ListNode'
+import ListNode from './DataStructures/ListNode'
 import { runTests } from './TestHelpers'
 
 function reverseList(head: ListNode | null): ListNode | null {
