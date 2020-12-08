@@ -1,4 +1,6 @@
-# Project 200 Hours
+<p>
+  <img src="images/project-200-hours-logo.png" alt="Logo" width="50%" />
+</p>
 
 [![Build Status](https://travis-ci.com/hachibu/project-200-hours.svg?branch=master)](https://travis-ci.com/hachibu/project-200-hours)
 
