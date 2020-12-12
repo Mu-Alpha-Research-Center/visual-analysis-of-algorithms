@@ -39,16 +39,12 @@ export const runTests = (func: TestFunc, tests: Test[]): void => {
 }
 
 function getTestName(func: TestFunc, test?: Test): string {
-  let testName = func.name + '('
+  let testName = `${func.name}(`
   for (let i = 0; i < func.length; i++) {
-    if (test) {
-      testName += prettyFormat(test[i])
-    } else {
-      testName += '%p'
-    }
-    if (i !== func.length - 1) {
+    testName += test ? prettyFormat(test[i]) : '%p'
+    if (i < func.length - 1) {
       testName += ', '
     }
   }
-  return testName + ')'
+  return `${testName})`
 }
