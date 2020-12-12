@@ -2,7 +2,7 @@
 // https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
 
 import ListNode from './DataStructures/ListNode'
-import { runTests, todo } from './TestHelpers'
+import { runTests } from './TestHelpers'
 
 type NullableListNode = ListNode | null
 
