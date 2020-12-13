@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/integer-to-roman
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function intToRoman(num: number): string {
   let result = ''

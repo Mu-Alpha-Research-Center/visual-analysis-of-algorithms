@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/string-to-integer-atoi
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function isDigit(str: string): boolean {
   let digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']

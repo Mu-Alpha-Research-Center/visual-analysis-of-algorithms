@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/remove-element
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function removeElement(nums: number[], val: number): number {
   let i = nums.length

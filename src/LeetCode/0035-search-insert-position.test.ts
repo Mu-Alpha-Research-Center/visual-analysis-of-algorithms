@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/search-insert-position
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function searchInsert(nums: number[], target: number): number {
   let i = 0

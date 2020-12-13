@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/single-number
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function singleNumber(nums: number[]): number {
   let counts: { [key:string]: number } = {}

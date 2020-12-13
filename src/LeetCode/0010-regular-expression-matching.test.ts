@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/regular-expression-matching
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function isMatch(s: string, p: string): boolean {
   let match = true,

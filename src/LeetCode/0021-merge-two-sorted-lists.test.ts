@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/merge-two-sorted-lists
 // https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
 
-import ListNode from './DataStructures/ListNode'
-import { runTests } from './TestHelpers'
+import ListNode from '../DataStructures/ListNode'
+import { runTests } from '../TestHelpers'
 
 type NullableListNode = ListNode | null
 

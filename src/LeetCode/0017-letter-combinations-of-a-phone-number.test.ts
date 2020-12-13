@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number
 // https://www.geeksforgeeks.org/permutation-and-combination
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function letterCombinations(digits: string): string[] {
   let digitToLetters: Record<string, string[]> = {

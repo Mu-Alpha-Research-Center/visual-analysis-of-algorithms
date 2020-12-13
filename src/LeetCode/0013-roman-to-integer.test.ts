@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/roman-to-integer
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 let RomanNumeral: { [key: string]: number } = {
   I: 1,

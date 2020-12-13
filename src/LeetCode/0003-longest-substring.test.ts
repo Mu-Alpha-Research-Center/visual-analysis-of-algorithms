@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/longest-substring-without-repeating-characters
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function lengthOfLongestSubstring(s: string): number {
   let longestStr = '',

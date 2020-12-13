@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-subarray
 
-import { runTests } from './TestHelpers'
+import { runTests } from '../TestHelpers'
 
 function maxSubArray(nums: number[]): number {
   let max = NaN, i, j, n
