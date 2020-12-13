@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/regular-expression-matching
 
-import { runTests, todo } from './TestHelpers'
+import { runTests } from './TestHelpers'
 
 function isMatch(s: string, p: string): boolean {
   let match = true,
@@ -29,11 +29,11 @@ function isMatch(s: string, p: string): boolean {
 }
 
 runTests(isMatch, [
-  todo(['a', '.*..a*', false]),
+  ['a', '.*..a*', false, 'todo'],
   ['ab', '.*..', true],
-  todo(['aaa', 'ab*a*c*a', true]),
+  ['aaa', 'ab*a*c*a', true, 'todo'],
   ['aaa', 'aaaa', false],
-  todo(['aaa', 'a*a', true]),
+  ['aaa', 'a*a', true, 'todo'],
   ['ab', '.*c', false],
   ['a', 'a', true],
   ['aa', 'a', false],

@@ -1,25 +1,12 @@
 import * as prettyFormat from 'pretty-format'
 
-type Test = any[] | TodoTest
-
+type Test = any[]
 type TestFunc = (...args: any[]) => any
-
-class TodoTest {
-  length: number = 0
-
-  constructor(test: Test) {
-    for (let i = 0; i < test.length; i++) {
-      this[i] = test[i]
-    }
-  }
-}
-
-export const todo = (test: Test): TodoTest => new TodoTest(test)
 
 export const runTests = (func: TestFunc, tests: Test[]): void => {
   for (let i = 0; i < tests.length; i++) {
     let t = tests[i];
-    if (t instanceof TodoTest) {
+    if (t[t.length - 1] === 'todo') {
       test.todo(getTestName(func, t))
       delete tests[i]
     }
