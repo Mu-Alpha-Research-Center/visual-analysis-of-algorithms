@@ -3,51 +3,32 @@
 
 import { runTests } from './TestHelpers'
 
-function digitsToLetterGroups(digits: string): string[][] {
-  let letters: Record<number, string> = {
-    2: 'abc',
-    3: 'def',
-    4: 'ghi',
-    5: 'jkl',
-    6: 'mno',
-    7: 'pqrs',
-    8: 'tuv',
-    9: 'wxyz'
+function letterCombinations(digits: string): string[] {
+  let digitToLetters: Record<string, string[]> = {
+    2: ['a', 'b', 'c'],
+    3: ['d', 'e', 'f'],
+    4: ['g', 'h', 'i'],
+    5: ['j', 'k', 'l'],
+    6: ['m', 'n', 'o'],
+    7: ['p', 'q', 'r', 's'],
+    8: ['t', 'u', 'v'],
+    9: ['w', 'x', 'y', 'z']
   }
-  return digits.split('').map(digit => letters[digit].split(''))
+  let groups: string[][] = digits.split('').map(digit => digitToLetters[digit])
+
+  return groups.length === 0 ? [] : combineLetters('', ...groups)
 }
 
-function letterCombinations(digits: string): string[] {
+function combineLetters(letter: string, ...groups: string[][]): string[] {
   let result: string[] = []
-  let groups: string[][] = digitsToLetterGroups(digits)
 
-  if (groups.length === 1) {
-    for (let a of groups[0]) {
-      result.push(a)
-    }
-  } else if (groups.length === 2) {
-    for (let a of groups[0]) {
-      for (let b of groups[1]) {
-        result.push(a + b)
-      }
-    }
-  } else if (groups.length === 3) {
-    for (let a of groups[0]) {
-      for (let b of groups[1]) {
-        for (let c of groups[2]) {
-          result.push(a + b + c)
-        }
-      }
-    }
-  } else if (groups.length === 4) {
-    for (let a of groups[0]) {
-      for (let b of groups[1]) {
-        for (let c of groups[2]) {
-          for (let d of groups[3]) {
-            result.push(a + b + c + d)
-          }
-        }
-      }
+  if (groups.length === 0) {
+    result.push(letter)
+  } else {
+    let nextGroup = groups.shift()
+
+    for (let otherLetter of nextGroup) {
+      result = result.concat(combineLetters(letter + otherLetter, ...groups))
     }
   }
 
