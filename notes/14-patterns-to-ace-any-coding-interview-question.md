@@ -3,7 +3,7 @@
 1. Sliding Window
    - [x] [Maximum sum sub-array of size 'K'](https://leetcode.com/problems/maximum-subarray)
    - [x] [Longest substring with 'K' distinct characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
-   - [ ] [String anagrams](https://leetcode.com/problems/find-all-anagrams-in-a-string)
+   - [x] [String anagrams](https://leetcode.com/problems/find-all-anagrams-in-a-string)
 
 2. Two Pointers or Iterators
    - [x] [Squaring a sorted array](https://leetcode.com/problems/squares-of-a-sorted-array)

@@ -1,0 +1,10 @@
+# Use Hashes To Efficiently Compare Complex Data Structures
+
+- Git hashes: Comparing trees of files quickly.
+- Image hashing: Find duplicate images quickly.
+- Letter Hash:
+  Finding all anagrams in a strings. An anagram is a permutation of string.
+  How can you efficiently compare to permutations. Each permutation has
+  something in common. They have the same counts of each letter, no matter how
+  you rearrange the letters. If you keep track of the counts in an array[26]
+  at the end "ab" is `1100...` and "ba" is `1100...`.
