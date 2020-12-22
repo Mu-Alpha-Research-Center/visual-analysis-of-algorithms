@@ -1,12 +1,11 @@
 = Project 200 Hours =
 
-== General ==
-* Pick a single language.
+== Notes ==
+* Pick a single programming language.
 * Use flashcards (e.g. Anki). Repetition over time is the secret to retaining knowledge.
-
-== Coding ==
 * [[Use Hashes For Efficient Comparision]]
+* [[The Sliding Window Pattern]]
 
 == Resources ==
-* [[14 Coding Interview Patterns]]
+* https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
 * https://github.com/jwasham/coding-interview-university

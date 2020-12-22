@@ -1,0 +1,12 @@
+= The Sliding Window Pattern =
+
+...
+
+== Problems ==
+- [X] Maximum sub-array sum: https://leetcode.com/problems/maximum-subarray
+- [X] Longest substring with unique characters: https://leetcode.com/problems/longest-substring-without-repeating-characters
+- [X] Find all string anagrams: https://leetcode.com/problems/find-all-anagrams-in-a-string
+
+== Resources ==
+* https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+* https://www.youtube.com/watch?v=MK-NZ4hN7rs
