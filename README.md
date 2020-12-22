@@ -5,3 +5,5 @@
 | Time Completed | Time Remaining |
 | -------------- | -------------- |
 | 7:19:59        | 192:40:01      |
+
+- [Project 200 Wiki](https://hachibu.github.io/project-200-hours)

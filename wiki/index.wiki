@@ -1,0 +1,12 @@
+= Project 200 Hours =
+
+== General ==
+* Pick a single language.
+* Use flashcards (e.g. Anki). Repetition over time is the secret to retaining knowledge.
+
+== Coding ==
+* [[Use Hashes For Efficient Comparision]]
+
+== Resources ==
+* [[14 Coding Interview Patterns]]
+* https://github.com/jwasham/coding-interview-university

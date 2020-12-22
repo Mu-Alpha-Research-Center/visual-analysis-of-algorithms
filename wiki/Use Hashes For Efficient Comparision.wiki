@@ -1,4 +1,4 @@
-# Use Hashes To Efficiently Compare Complex Data Structures
+Use Hashes To Efficiently Compare Complex Data Structures
 
 - Git hashes: Comparing trees of files quickly.
 - Image hashing: Find duplicate images quickly.
