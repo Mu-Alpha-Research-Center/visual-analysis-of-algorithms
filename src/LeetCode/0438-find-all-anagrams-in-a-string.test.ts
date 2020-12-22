@@ -2,31 +2,55 @@
 
 import { runTests } from '../TestHelpers'
 
-function newLetterHash(): number[] {
-  let result: number[] = []
-  for (let i = 0; i < 26; i++) result.push(0)
-  return result
-}
+class LetterHash {
+  hash: number[]
 
-function incLetterHash(hash: number[], c: string) {
-  let i = c.charCodeAt(0) - 'a'.charCodeAt(0)
-  let n = hash[i]
-  hash[i] = n ? n + 1 : 1
+  constructor() {
+    this.hash = []
+
+    for (let i = 0; i < 26; i++) {
+      this.hash.push(0)
+    }
+  }
+
+  equals(otherHash: LetterHash): boolean {
+    return this.toString() === otherHash.toString()
+  }
+
+  increment(c: string) {
+    let i:number = c.charCodeAt(0) - 'a'.charCodeAt(0)
+    let n:number = this.hash[i]
+
+    this.hash[i] = n ? n + 1 : 1
+  }
+
+  toString(): string {
+    return this.hash.join('')
+  }
 }
 
 function findAnagrams(s: string, p: string): number[] {
   let result: number[] = []
-  let hash: number[] = newLetterHash()
-  for (let c of p) incLetterHash(hash, c)
+  let hash: LetterHash = new LetterHash()
+
+  for (let c of p) {
+    hash.increment(c)
+  }
+
   for (let i = 0; i < s.length; i++) {
-    let j = i
-    let otherHash: number[] = newLetterHash()
+    let j:number = i
+    let otherHash: LetterHash = new LetterHash()
+
     while (j < i + p.length && j < s.length) {
-      incLetterHash(otherHash, s[j])
+      otherHash.increment(s[j])
       j++
     }
-    if (hash.join('') === otherHash.join('')) result.push(i)
+
+    if (hash.equals(otherHash)) {
+      result.push(i)
+    }
   }
+
   return result
 }
 
