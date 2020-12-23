@@ -18,6 +18,7 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
+    "compile-docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
     "time": "timew summary :year LeetCode | ts-node lib/TimeSummary.ts",
     "test": "jest"
   }
