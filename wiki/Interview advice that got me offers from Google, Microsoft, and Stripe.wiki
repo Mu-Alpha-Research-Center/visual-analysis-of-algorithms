@@ -1,0 +1,60 @@
+https://www.zainrizvi.io/blog/the-interviewing-advice-no-one-shares/
+
+= Introduction =
+
+* Interviewing is a skill and anyone can learn it.
+
+= Tip #1: Use recruiters to your advantage =
+
+* The recruiter wants to work _with_ you. They know that you probably have poor
+  interview prep skill, and are happy to help fix that flaw. Why discard strong
+  candidates who can't interview well? It's not in their best interest. It's
+  better for them to help candidates show their best selves when interviewing.
+* Ask them questions like:
+  - What should I do to prepare for the interview?
+  - What are the company values that would be good to highlight during the
+    interview?
+
+= Tip #2: Go to real interviews for practice =
+
+== Learn to deal with pressure ==
+
+* You need to build up your interviewing skills. LeetCode is great, but it
+  doesn't come close to the real thing.
+* Real interviews teach you how to deal with the pressure. The first interview
+  will kick your ass. So will the second. But once you get a few under your
+  belt you'll get used to the adrenaline rush.
+* I've found that I perform the best in the interviews where I don't care about
+  the outcome. I'm much more relaxed and I can think faster. Now, even in
+  important interviews I try to convince myself that I don't really care.
+
+== Learn to answer the more ambiguous questions ==
+
+* Write down all the questions you were asked, and consider how you could have
+  responded better. Focus on the behavioral and design ones which ahve no clear
+  right answer. Are there stories from your life you could have referenced?
+  Wait a few days and look at them again. You'll find better answers.
+
+== Stay open to serendipity ==
+
+* As you do these interviews, you may discover that the "practice" company is
+  actually interesting after all. Recruiters count on that.
+
+= Tip #3: Be open to learning during the interview =
+
+* Since then I've stopped hesitating before asking any question in an interview.
+  Let your curiosity run free! Don't cage it! And as an interviewer, I can
+  attest: sincere interest is always a good sign.
+
+= Tip #4: Keep your skills sharp even when you’re not job hunting =
+
+* James Whittaker recommends trying to get a job offer every year, just to make
+  sure you can. It's an extremely liberating feeling knowing that even if you
+  lose your job you'll be able to find another one quickly.
+
+= Conclusion =
+
+* What do all these tactics have in common? They eliminate your fear. The fear
+  that holds you back from letting your best self out. Do them often enough and
+  interview rooms will transform from a threatening jungle into Tarzan's
+  playground.
