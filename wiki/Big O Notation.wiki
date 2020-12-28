@@ -1,0 +1,57 @@
+= Big O Notation =
+
+by Hachibu
+
+== What Is Big O? ==
+
+Big O is a mathematical notation for measuring the rate of growth of an
+algorithm in terms of time and space. Big O is mainly interesting in counting
+the number of operations it takes for an algorithm to complete its job.
+
+The "O" is short for "Order of". So, if we're an algorithm is O(n) then we say
+its order of, or rate of growth, is "n" or linear complexity.
+
+Big O notation measures the worst-case scenario so we can place an upper-bound
+on the performance of our algorithm. And by upper bound, I mean the maximum
+number of operations performed by an algorithm.
+
+| O            | Complexity       |
+| O(1)         | Constant         |
+| O(log n)     | Logarithmic      |
+| O(n)         | Linear           |
+| O(n log n)   | Log Linear       |
+| O(n^2)       | Quadratic        |
+| O(n^3)       | Cubic            |
+| O(2^n)       | Exponential      |
+| O(n!)        | Factorial        |
+
+== What Is A Logarithm? ==
+
+Logarithms allow us to reverse engineer a power. They are the inverse operation
+of exponentiation.
+
+== Constant Time - O(1) ==
+Same amount of time no matter the size of n. Add item to end of array.
+
+== Logarithmic Time - O(log n) ==
+Dividing input with each iteration. Halving the work. Binary search.
+
+== Linear Time - O(n) ==
+Time scales 1:1 as input scales. Linear search.
+
+== Log Linear Time - O(n log n) ==
+
+== Quadratic Time - O(n^2) ==
+Time is proportional to the square of the input. Bubble sort.
+
+== Cubic Time - O(n^3) ==
+
+
+== Exponential Time - O(2^n) ==
+
+== Factorial Time - O(n!)  ==
+
+== Resources ==
+* https://www.youtube.com/watch?v=V6mKVRU1evU
+* https://www.bigocheatsheet.com
+* https://dev.to/nielsenjared/big-o-logarithmic-time-complexity-gng

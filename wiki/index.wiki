@@ -3,7 +3,8 @@
 == Notes ==
 * [[Use Hashes For Efficient Comparision]]
 * [[The Sliding Window]]
+* [[Big O Notation]]
 
-== Reading Notes ==
+== Resource Notes ==
 * [[Coding Interview University]]
 * [[Interview advice that got me offers from Google, Microsoft, and Stripe]]
