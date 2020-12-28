@@ -1,8 +1,9 @@
-= Project 200 Hours =
+= Project 200 Hours Wiki =
 
 == Notes ==
 * [[Use Hashes For Efficient Comparision]]
+* [[The Sliding Window Pattern]]
+
+== Blog Notes ==
 * [[Coding Interview University]]
-* https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
-  * [[The Sliding Window Pattern]]
 * [[Interview advice that got me offers from Google, Microsoft, and Stripe]]
