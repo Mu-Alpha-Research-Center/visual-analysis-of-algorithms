@@ -1,0 +1,34 @@
+= The Sliding Window =
+
+by Hachibu
+
+== Introduction ==
+
+The sliding window is a generic problem solving technique that can be applied to
+a variety of programming problems. The benefit of using the sliding window is
+that you can optimize your algorithm to linear time and get rid of duplicate
+work. The naive solution usually involves enumerating all combinations resulting
+in quadratic time (n^2).
+
+The sliding window technique only applies to linear data structures that can be
+iterated sequentially: arrays and strings. Essentially, you create a window into
+your data structure by keeping track of the beginning and the end of the window.
+Then you move that window across your data structure sequentially. This window
+can either be fixed or dynamic depending on the problem.
+
+You might need the sliding window if:
+
+* it's a data structure that can be iterated over sequentially: array or string.
+* you're calculating the min, max, longest, shortest, or contained.
+
+== Examples ==
+
+* Fixed
+  - Max sum subarray of size K: https://www.geeksforgeeks.org/find-maximum-minimum-sum-subarray-size-k/
+  - Find all anagrams in a string: https://leetcode.com/problems/find-all-anagrams-in-a-string
+* Dynamic
+  - Longest substring without repeating characters: https://leetcode.com/problems/longest-substring-without-repeating-characters
+
+== Resources ==
+* https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+* https://www.youtube.com/watch?v=MK-NZ4hN7rs

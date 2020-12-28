@@ -2,8 +2,8 @@
 
 == Notes ==
 * [[Use Hashes For Efficient Comparision]]
-* [[The Sliding Window Pattern]]
+* [[The Sliding Window]]
 
-== Blog Notes ==
+== Reading Notes ==
 * [[Coding Interview University]]
 * [[Interview advice that got me offers from Google, Microsoft, and Stripe]]

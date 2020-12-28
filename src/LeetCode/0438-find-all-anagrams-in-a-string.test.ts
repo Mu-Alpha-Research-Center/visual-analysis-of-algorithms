@@ -37,17 +37,16 @@ function findAnagrams(s: string, p: string): number[] {
     hash.increment(c)
   }
 
-  for (let i = 0; i < s.length; i++) {
-    let j:number = i
+  for (let beg = 0; beg < s.length; beg++) {
+    let end:number = beg + p.length
     let otherHash: LetterHash = new LetterHash()
 
-    while (j < i + p.length && j < s.length) {
-      otherHash.increment(s[j])
-      j++
+    for (let i = beg; i < end && i < s.length; i++) {
+      otherHash.increment(s[i])
     }
 
     if (hash.equals(otherHash)) {
-      result.push(i)
+      result.push(beg)
     }
   }
 
