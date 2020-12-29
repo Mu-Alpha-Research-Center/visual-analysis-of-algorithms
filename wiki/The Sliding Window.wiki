@@ -1,3 +1,5 @@
+[[/index]]
+
 = The Sliding Window =
 
 by Hachibu

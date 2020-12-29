@@ -3,7 +3,7 @@
 == Notes ==
 * [[Use Hashes For Efficient Comparision]]
 * [[The Sliding Window]]
-* [[Big O Notation]]
+* [[Asymptotics]]
 
 == Resource Notes ==
 * [[Coding Interview University]]

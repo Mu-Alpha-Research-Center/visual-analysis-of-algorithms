@@ -1,3 +1,5 @@
+[[/index]]
+
 = Use Hashes For Efficient Comparison =
 
 by Hachibu

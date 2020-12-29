@@ -1,6 +1,26 @@
-= Big O Notation =
+[[/index]]
+
+= Asymptotics =
 
 by Hachibu
+
+== Introduction ==
+
+Asymptotics is the mathematical foundation for how we analyze the running
+time of our algorithms. It is a method for describing limiting behaviour which
+is exactly what we're doing when we place an upper bound on an algorithm. For
+example, if our algorithm's worst-case running time is order of n (`O(n)`) then
+the worst-case running time will never exceed `n`.
+
+== Asymptotic Notation ==
+
+There are 3 types of notation that are commonly used to represent the growth of
+an algorithm as input increases.
+
+| Notation      | Summary                 |
+| Big Theta (Θ) | Upper and lower bound   |
+| Big O (O)     | Upper bound, worst case |
+| Big Omega (Ω) | Lower bound, best case  |
 
 == What Is Big O? ==
 
@@ -55,3 +75,4 @@ Time is proportional to the square of the input. Bubble sort.
 * https://www.youtube.com/watch?v=V6mKVRU1evU
 * https://www.bigocheatsheet.com
 * https://dev.to/nielsenjared/big-o-logarithmic-time-complexity-gng
+* https://en.wikipedia.org/wiki/Asymptotic_analysis
