@@ -19,7 +19,7 @@
   },
   "scripts": {
     "compile-docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
-    "time": "timew summary :year LeetCode | ts-node lib/TimeSummary.ts",
+    "time": "timew summary :year 'Project 200' | ts-node lib/TimeSummary.ts",
     "test": "jest"
   }
 }
