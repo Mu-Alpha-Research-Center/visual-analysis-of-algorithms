@@ -1,4 +1,4 @@
-= Project 200 Hours Wiki =
+= Project 200 Wiki =
 
 == Notes ==
 * [[Use Hashes For Efficient Comparision]]

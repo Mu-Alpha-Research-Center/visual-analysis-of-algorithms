@@ -1,6 +1,6 @@
-# Project 200 Hours
+# Project 200
 
-[Project 200 Hours Wiki](https://hachibu.github.io/project-200-hours)
+[Project 200 Wiki](https://hachibu.github.io/project-200-hours)
 
 ## Timer
 
