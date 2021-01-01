@@ -22,6 +22,7 @@ You might need the sliding window if:
 
 * it's a data structure that can be iterated over sequentially: array or string.
 * you're calculating the min, max, longest, shortest, or contained.
+* it's sorted.
 
 == Examples ==
 
@@ -30,6 +31,7 @@ You might need the sliding window if:
   - Find all anagrams in a string: https://leetcode.com/problems/find-all-anagrams-in-a-string
 * Dynamic
   - Longest substring without repeating characters: https://leetcode.com/problems/longest-substring-without-repeating-characters
+  - Two sum sorted: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
 
 == Resources ==
 * https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
