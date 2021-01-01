@@ -1,11 +1,10 @@
 # Project 200
 
 * [Project 200 Wiki](https://hachibu.github.io/project-200)
+* [TimeWarrior](https://timewarrior.net)
 
 ## Timer
 
 | Time Completed | Time Remaining |
 | -------------- | -------------- |
-| 12:25:05       | 187:34:55      |
-
-* [TimeWarrior](https://timewarrior.net)
+| 13:03:05       | 186:56:55      |

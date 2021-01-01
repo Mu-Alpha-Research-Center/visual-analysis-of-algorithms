@@ -3,6 +3,19 @@ import * as prettyFormat from 'pretty-format'
 type Test = any[]
 type TestFunc = (...args: any[]) => any
 
+export class Tests {
+  tests: Test[]
+
+  constructor(...tests: Test) {
+    this.tests = tests
+  }
+
+  run(func: TestFunc): Tests {
+    runTests(func, this.tests)
+    return this
+  }
+}
+
 export const runTests = (func: TestFunc, tests: Test[]): void => {
   for (let i = 0; i < tests.length; i++) {
     let t = tests[i];
