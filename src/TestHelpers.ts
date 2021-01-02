@@ -10,8 +10,10 @@ export class Tests {
     this.tests = tests
   }
 
-  run(func: TestFunc): Tests {
-    runTests(func, this.tests)
+  run(...funcs: TestFunc[]): Tests {
+    for (let func of funcs) {
+      runTests(func, this.tests)
+    }
     return this
   }
 }

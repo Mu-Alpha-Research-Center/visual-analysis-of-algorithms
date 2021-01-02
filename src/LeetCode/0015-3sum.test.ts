@@ -43,5 +43,4 @@ let tests = new Tests(
   [[-2, 0, 0, 2, 2], [[-2, 0, 2]]],
 )
 
-tests
-  .run(threeSum)
+tests.run(threeSum)

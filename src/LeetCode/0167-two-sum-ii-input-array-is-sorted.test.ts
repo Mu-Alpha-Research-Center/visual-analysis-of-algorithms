@@ -64,8 +64,9 @@ let tests = new Tests(
   [[-1, 0], -1, [1, 2]],
 )
 
-tests
-  .run(twoSum1)
-  .run(twoSum2)
-  .run(twoSum3)
-  .run(twoSum4)
+tests.run(
+  twoSum1,
+  twoSum2,
+  twoSum3,
+  twoSum4
+)
