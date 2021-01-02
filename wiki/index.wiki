@@ -1,9 +1,11 @@
 = Project 200 Wiki =
 
 == Notes ==
-* [[Use Hashes For Efficient Comparision]]
-* [[The Sliding Window]]
 * [[Asymptotics]]
+* [[Use Hashes For Efficient Comparision]]
+* Patterns
+  1. [[The Sliding Window]]
+  2. [[Two Pointers]]
 
 == Resources ==
 * [[Coding Interview University]]

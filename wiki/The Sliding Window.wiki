@@ -22,7 +22,6 @@ You might need the sliding window if:
 
 * it's a data structure that can be iterated over sequentially: array or string.
 * you're calculating the min, max, longest, shortest, or contained.
-* it's sorted.
 
 == Examples ==
 
