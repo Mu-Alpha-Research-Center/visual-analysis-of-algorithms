@@ -2,6 +2,9 @@ import * as prettyFormat from 'pretty-format'
 
 type Test = any[]
 type TestFunc = (...args: any[]) => any
+type Newable = {
+  new(...args: any[]): any
+}
 
 export class Tests {
   tests: Test[]
@@ -13,6 +16,21 @@ export class Tests {
   run(...funcs: TestFunc[]): Tests {
     for (let func of funcs) {
       runTests(func, this.tests)
+    }
+    return this
+  }
+
+  runClass(obj: Newable): Tests {
+    for (let testArgs of this.tests) {
+      let [funcs, funcArgs, expected] = testArgs
+      let instance = new obj(...funcArgs[0])
+      for (let i = 1; i < funcs.length; i++) {
+        let func = funcs[i]
+        let args = funcArgs[i]
+        test(`${funcs[0]}.${funcs[i]}(${args})`, () =>
+          expect(instance[func](...args)).toStrictEqual(expected[i])
+        )
+      }
     }
     return this
   }
