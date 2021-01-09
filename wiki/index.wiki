@@ -18,3 +18,4 @@
 * [[Coding Interview University]]
 * [[Interview advice that got me offers from Google, Microsoft, and Stripe]]
 * [[Using Leetcode to master coding interviews]]
+* [[Why you failed your tech interview]]
