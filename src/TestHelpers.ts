@@ -1,26 +1,39 @@
 import * as prettyFormat from 'pretty-format'
 
-type Test = any[]
-type TestFunc = (...args: any[]) => any
 type Newable = {
   new(...args: any[]): any
 }
 
 export class Tests {
-  tests: Test[]
+  tests: any[]
 
-  constructor(...tests: Test) {
+  constructor(...tests: any[]) {
     this.tests = tests
   }
 
-  run(...funcs: TestFunc[]): Tests {
-    for (let func of funcs) {
-      runTests(func, this.tests)
-    }
-    return this
+  run(...funcs: Function[]): void {
+    for (let func of funcs) this.runFunc(func)
   }
 
-  runClass(obj: Newable): Tests {
+  runFunc(func: Function): void {
+    for (let i = 0; i < this.tests.length; i++) {
+      let t = this.tests[i];
+      if (t[t.length - 1] !== 'todo') continue
+      test.todo(this.getTestName(func, t))
+      delete this.tests[i]
+    }
+    if (this.tests.length === 0) return
+    test.each(this.tests)(this.getTestName(func), (...args) => {
+      let [ok, error] = this.isValid(args)
+      if (ok) {
+        expect(func(...args)).toStrictEqual(args.pop())
+      } else {
+        throw(error)
+      }
+    })
+  }
+
+  runClass(obj: Newable): void {
     for (let testArgs of this.tests) {
       let [funcs, funcArgs, expected] = testArgs
       let instance = new obj(...funcArgs[0])
@@ -32,39 +45,34 @@ export class Tests {
         )
       }
     }
-    return this
   }
-}
 
-export const runTests = (func: TestFunc, tests: Test[]): void => {
-  for (let i = 0; i < tests.length; i++) {
-    let t = tests[i];
-    if (t[t.length - 1] === 'todo') {
-      test.todo(getTestName(func, t))
-      delete tests[i]
-    }
-  }
-  if (tests.length) {
-    test.each(tests)(getTestName(func), (...args) => {
-      if (args.length === 0) {
-        throw `Error: Test is empty: [].`
-      } else if (args.length === 1) {
-        args.push('?')
-        throw `Error: Test missing expected return value: [${args}].`
+  getTestName(func: Function, test?: any[]): string {
+    let testName = `${func.name}(`
+    for (let i = 0; i < func.length; i++) {
+      testName += test ? prettyFormat(test[i]) : '%p'
+      if (i < func.length - 1) {
+        testName += ', '
       }
-      let expected = args.pop()
-      expect(func(...args)).toStrictEqual(expected)
-    })
+    }
+    return `${testName})`
+  }
+
+  isValid(test: any[]): [boolean, string] {
+    let ok:boolean = true
+    let error:string = ''
+    if (test.length === 0) {
+      ok = false
+      error = 'Error: Test is empty: [].'
+    } else if (test.length === 1) {
+      test.push('?')
+      ok = false
+      error = `Error: Test missing expected return value: [${test}].`
+    }
+    return [ok, error]
   }
 }
 
-function getTestName(func: TestFunc, test?: Test): string {
-  let testName = `${func.name}(`
-  for (let i = 0; i < func.length; i++) {
-    testName += test ? prettyFormat(test[i]) : '%p'
-    if (i < func.length - 1) {
-      testName += ', '
-    }
-  }
-  return `${testName})`
+export function runTests(func: Function, tests: any[]): void {
+  new Tests(...tests).run(func)
 }
