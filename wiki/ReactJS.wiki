@@ -1,7 +1,7 @@
 [[/index]]
 
-= React =
-React is an open-source, front end, JavaScript library for building user
+= ReactJS ==
+ReactJS is an open-source, front end, JavaScript library for building user
 interfaces or UI components. It is maintained by Facebook and a community of
 individual developers and companies. React can be used as a base in the
 development of single-page or mobile applications. However, React is only
@@ -9,11 +9,21 @@ concerned with state management and rendering that state to the DOM, so creating
 React applications usually requires the use of additional libraries for routing.
 React Router is an example of such a library.
 
+The building blocks of React are elements and components.
+
+== What are elements? ==
+
+Elements are the smallest building blocks of React apps.
+
 == What are Components? ==
+Components let you split the UI into independent, reusable pieces, and think
+about each piece in isolation.
+
 React code is made of entities called components. Components can be rendered to
 a particular element in the DOM using the React DOM library. When rendering a
 component, one can pass in values that are known as "props."
 
+All React components must act like pure functions with respect to their props.
 The two primary ways of declaring components in React is via functional
 components and class-based components.
 
@@ -28,6 +38,21 @@ class Hello extends React.Component {
 
 ReactDOM.render(<Hello name="World" />, document.getElementById('root'));
 ```
+
+Do Not Modify State Directly
+State Updates May Be Asynchronous
+React may batch multiple setState() calls into a single update for performance.
+
+pass setState a function if you need to use values from the current state. If
+it's a totally new value independent of them, then pass the direct value.
+
+You only need to update the little bit of state you need updated. React will
+take care of the rest!
+
+The Data Flows Down
+
+props are immutable and state is mutable and local. state is always owned by
+a component. state is like the private keyword in a Java class.
 
 == What is the Virtual DOM? ==
 React creates an in-memory data-structure cache, computes the resulting
