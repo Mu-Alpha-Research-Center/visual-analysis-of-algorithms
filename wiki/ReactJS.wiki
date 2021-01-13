@@ -102,5 +102,12 @@ hooks rely on.
 * Hooks should only be called from React function components,
   not normal functions or class components
 
+
+== Reducers ==
+
+Like the functional programming concept of reducing a list of numbers down
+to a sum. A React reduces your state down to a final value to be used.
+
+
 == Resources ==
 * https://en.wikipedia.org/wiki/React_(web_framework)
