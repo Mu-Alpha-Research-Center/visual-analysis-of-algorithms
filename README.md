@@ -1,6 +1,6 @@
-# Project 200
+# Project 300
 
-* [Project 200 Wiki](https://hachibu.github.io/project-200)
+* [Project 300 Wiki](https://hachibu.github.io/project-300)
 * [TimeWarrior](https://timewarrior.net)
 
 ## Timer
