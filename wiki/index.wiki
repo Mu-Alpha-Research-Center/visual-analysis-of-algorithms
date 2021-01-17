@@ -17,3 +17,5 @@
 * [[Using Leetcode to master coding interviews]]
 * [[Why you failed your tech interview]]
 * https://www.khanacademy.org/computing/computer-science/algorithms
+* https://www.bigocheatsheet.com
+* https://timewarrior.net
