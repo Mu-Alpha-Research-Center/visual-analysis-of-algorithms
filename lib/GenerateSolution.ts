@@ -5,15 +5,11 @@ function template(name) {
 
 import { Tests } from '../TestHelpers'
 
-function solution(n: number): number {
-  return n
-}
-
 let tests = new Tests(
-  [0, 0]
 )
 
-tests.run(solution)`
+tests.run(
+)`
 }
 
 function main() {
