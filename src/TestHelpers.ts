@@ -1,3 +1,4 @@
+import * as _ from 'lodash'
 import * as prettyFormat from 'pretty-format'
 
 type Newable = {
@@ -16,14 +17,15 @@ export class Tests {
   }
 
   runFunc(func: Function): void {
-    for (let i = 0; i < this.tests.length; i++) {
-      let t = this.tests[i];
+    let tests = this.cloneTests()
+    for (let i = 0; i < tests.length; i++) {
+      let t = tests[i];
       if (t[t.length - 1] !== 'todo') continue
       test.todo(this.getTestName(func, t))
-      delete this.tests[i]
+      delete tests[i]
     }
-    if (this.tests.length === 0) return
-    test.each(this.tests)(this.getTestName(func), (...args) => {
+    if (tests.length === 0) return
+    test.each(tests)(this.getTestName(func), (...args) => {
       let [ok, error] = this.isValid(args)
       if (ok) {
         expect(func(...args)).toStrictEqual(args.pop())
@@ -34,7 +36,8 @@ export class Tests {
   }
 
   runClass(obj: Newable): void {
-    for (let testArgs of this.tests) {
+    let tests = this.cloneTests()
+    for (let testArgs of tests) {
       let [funcs, funcArgs, expected] = testArgs
       let instance = new obj(...funcArgs[0])
       for (let i = 1; i < funcs.length; i++) {
@@ -45,6 +48,10 @@ export class Tests {
         )
       }
     }
+  }
+
+  cloneTests(): any[] {
+    return this.tests.map(_.cloneDeep)
   }
 
   getTestName(func: Function, test?: any[]): string {
