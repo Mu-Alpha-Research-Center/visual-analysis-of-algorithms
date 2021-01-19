@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/length-of-last-word
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function lengthOfLastWord1(s: string): number {
   let result: number = 0

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/jewels-and-stones
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function numJewelsInStones1(jewels: string, stones: string): number {
   // Use a map to count occurences of jewels in stones

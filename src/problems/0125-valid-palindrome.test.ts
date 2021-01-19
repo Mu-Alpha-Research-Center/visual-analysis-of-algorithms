@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/valid-palindrome
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function isAlphaNum(s: string): boolean {
   return /[a-zA-Z0-9]/.test(s)

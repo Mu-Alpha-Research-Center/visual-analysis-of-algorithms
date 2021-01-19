@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/product-of-array-except-self
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function productExceptSelf1(nums: number[]): number[] {
   // This quadratic solution is too slow, but I think it's still interesting

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/house-robber
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function rob(nums: number[]): number {
   // Handle base cases where n <= 2

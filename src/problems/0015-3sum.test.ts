@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/3sum
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function twoSum(nums: number[], i: number, res: number[][]) {
   let lo = i + 1

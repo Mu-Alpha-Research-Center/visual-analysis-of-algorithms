@@ -5,7 +5,7 @@ type Newable = {
   new(...args: any[]): any
 }
 
-export class Tests {
+export default class Tests {
   tests: any[]
 
   constructor(...tests: any[]) {

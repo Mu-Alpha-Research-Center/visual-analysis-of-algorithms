@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/lemonade-change
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function lemonadeChange(bills: number[]): boolean {
   // Remember that we're dealing with physical bills.

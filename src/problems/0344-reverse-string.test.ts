@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/reverse-string
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function reverseString1(s: string[]): string[] {
   return s.reverse()

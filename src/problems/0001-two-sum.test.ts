@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/two-sum
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function twoSum1(nums: number[], target: number): number[] {
   for (let i = 0; i < nums.length; i++) {

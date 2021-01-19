@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/third-maximum-number
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function thirdMax1(nums: number[]): number {
   let numsUnique: number[] = Array.from(new Set(nums))

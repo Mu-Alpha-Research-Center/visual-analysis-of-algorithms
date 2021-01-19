@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function maxProfit1(prices: number[]): number {
   let maxprofit:number = 0

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/squares-of-a-sorted-array
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function sortedSquares1(numbers: number[]): number[] {
   return numbers

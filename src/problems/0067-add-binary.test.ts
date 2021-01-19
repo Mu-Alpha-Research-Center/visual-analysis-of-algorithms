@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/add-binary
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function addBinary1(a: string, b: string): string {
   return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2)

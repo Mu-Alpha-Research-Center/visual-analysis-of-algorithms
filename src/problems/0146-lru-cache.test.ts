@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/lru-cache
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 class LRUCache {
   capacity: number

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/basic-calculator-ii
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 const isDigit = (s: string): boolean => /\d/.test(s)
 const isOperator = (s: string): boolean => /[+\-*/]/.test(s)

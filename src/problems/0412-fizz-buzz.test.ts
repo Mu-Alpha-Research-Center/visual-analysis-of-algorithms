@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/fizz-buzz
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function fizzBuzz1(n: number): string[] {
   let result: string[] = []

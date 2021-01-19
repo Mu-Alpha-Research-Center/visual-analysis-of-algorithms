@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/rectangle-overlap
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 interface IPoint {
   x: number

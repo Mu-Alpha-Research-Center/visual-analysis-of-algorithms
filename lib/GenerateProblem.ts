@@ -3,7 +3,7 @@ import * as fs from 'fs'
 function template(name) {
   return `// https://leetcode.com/problems/${name}
 
-import { Tests } from '../TestHelpers'
+import Tests '../Tests'
 
 let tests = new Tests(
 )
@@ -26,7 +26,7 @@ function main() {
   let name = args[1]
   let numStr = num.toString().padStart(4, '0')
 
-  let file = `src/Solutions/${numStr}-${name}.test.ts`
+  let file = `src/problems/${numStr}-${name}.test.ts`
   let data = template(name)
 
   if (fs.existsSync(file)) {

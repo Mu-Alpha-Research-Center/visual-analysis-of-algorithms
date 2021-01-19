@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-number-of-balloons/
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function maxNumberOfBalloons(text: string): number {
   // This linear solution involves using a map as an auxillary data structure.

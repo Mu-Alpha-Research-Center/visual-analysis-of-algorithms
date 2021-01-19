@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
 
-import { Tests } from '../TestHelpers'
+import Tests from '../TestHelpers'
 
 function twoSum1(numbers: number[], target: number): number[] {
   for (let i = 0; i < numbers.length; i++) {

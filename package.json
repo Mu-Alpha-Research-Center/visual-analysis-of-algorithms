@@ -20,7 +20,7 @@
   },
   "scripts": {
     "compile-docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
-    "generate-solution": "ts-node lib/GenerateSolution.ts",
+    "generate-problem": "ts-node lib/GenerateProblem.ts",
     "time": "timew summary 2020-01-01 to tomorrow 'Project 300' | ts-node lib/TimeSummary.ts",
     "test": "jest"
   }
