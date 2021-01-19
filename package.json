@@ -19,8 +19,8 @@
     "typescript": "4.1.3"
   },
   "scripts": {
-    "compile-docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
-    "generate-problem": "ts-node lib/GenerateProblem.ts",
+    "docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
+    "problem": "ts-node lib/GenerateProblem.ts",
     "time": "timew summary 2020-01-01 to tomorrow 'Project 300' | ts-node lib/TimeSummary.ts",
     "test": "jest"
   }
