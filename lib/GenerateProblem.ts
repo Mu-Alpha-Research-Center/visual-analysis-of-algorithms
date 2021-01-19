@@ -3,7 +3,7 @@ import * as fs from 'fs'
 function template(name) {
   return `// https://leetcode.com/problems/${name}
 
-import Tests '../Tests'
+import Tests from '../TestHelpers'
 
 let tests = new Tests(
 )
