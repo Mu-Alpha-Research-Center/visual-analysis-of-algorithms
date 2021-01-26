@@ -47,5 +47,6 @@ test('depth-first traverse', () => {
     new TreeNode('e')
   ])
 
-  expect(root.dft().map(node => node.value)).toStrictEqual(['a', 'b', 'c', 'd', 'e'])
+  expect(root.dftRecursive().map(node => node.value)).toStrictEqual(['a', 'b', 'c', 'd', 'e'])
+  expect(root.dftIterative().map(node => node.value)).toStrictEqual(['a', 'b', 'c', 'd', 'e'])
 })

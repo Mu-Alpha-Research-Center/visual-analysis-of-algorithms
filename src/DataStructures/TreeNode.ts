@@ -1,3 +1,5 @@
+import Stack from './Stack'
+
 type Predicate<T> = (node: TreeNode<T>) => boolean
 
 export default class TreeNode<T> {
@@ -51,11 +53,25 @@ export default class TreeNode<T> {
     return null
   }
 
-  dft(): TreeNode<T>[] {
+  dftRecursive(): TreeNode<T>[] {
     let nodes = []
     nodes.push(this)
     for (let child of this.children) {
-      nodes = nodes.concat(child.dft())
+       nodes = nodes.concat(child.dftRecursive())
+    }
+    return nodes
+  }
+
+  dftIterative(): TreeNode<T>[] {
+    let nodes = []
+    let stack = []
+    stack.push(this)
+    while (stack.length > 0) {
+      let node = stack.pop()
+      nodes.push(node)
+      for (let child of node.children.reverse()) {
+        stack.push(child)
+      }
     }
     return nodes
   }
