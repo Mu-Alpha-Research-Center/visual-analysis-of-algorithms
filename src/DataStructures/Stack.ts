@@ -1,4 +1,4 @@
-export default class Stack<T> {
+export default class Stack<T> implements Iterable<T> {
   values: T[]
 
   constructor(values: T[] = []) {
@@ -19,5 +19,17 @@ export default class Stack<T> {
 
   isEmpty(): boolean {
     return this.values.length === 0
+  }
+
+  next(): IteratorResult<T> {
+    if (this.isEmpty()) {
+      return { value: null, done: true }
+    } else {
+      return { value: this.values.pop(), done: false }
+    }
+  }
+
+  [Symbol.iterator](): IterableIterator<T> {
+    return this
   }
 }
