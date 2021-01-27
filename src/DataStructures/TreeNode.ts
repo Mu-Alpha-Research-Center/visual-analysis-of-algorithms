@@ -1,5 +1,3 @@
-import Stack from './Stack'
-
 type Predicate<T> = (node: TreeNode<T>) => boolean
 
 export default class TreeNode<T> {
