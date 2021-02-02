@@ -23,7 +23,8 @@ function main() {
     return
   }
 
-  let name = args[1]
+  let path = args[1].split('/')
+  let name = path[path.length - 1]
   let numStr = num.toString().padStart(4, '0')
 
   let file = `src/problems/${numStr}-${name}.test.ts`
