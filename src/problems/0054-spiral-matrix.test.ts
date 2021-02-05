@@ -10,7 +10,6 @@ function* traverseSpiral(matrix: number[][]): IterableIterator<number> {
   let rmax = matrix.length - 1
   // Loop until pointers cross each other
   while (cmin <= cmax && rmin <= rmax) {
-    console.log ({ cmin, cmax })
     // Iterate top row
     for (let c = cmin; c <= cmax; c++) yield matrix[rmin][c]
     // Iterate right column

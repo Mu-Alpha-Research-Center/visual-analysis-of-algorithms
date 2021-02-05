@@ -1,5 +1,19 @@
-import * as _ from 'lodash'
-import * as prettyFormat from 'pretty-format'
+import _ from 'lodash'
+import prettyFormat from 'pretty-format'
+
+// Higher-Order Log is a function that accepts a function (func),
+export const holog = function(func: Function): Function {
+  // and returns a wrapper function (wrapperFunc).
+  return function wrapperFunc(...args) {
+    // The wrapper function calls your function (func),
+    const funcResult = func.call(null, ...args)
+    // logs the function signature and result to the console,
+    const funcSignature = `${func.name}(${[...args]})`
+    console.log(`${funcSignature} ⇒ ${funcResult}`)
+    // and finally returns the result to the caller.
+    return funcResult
+  }
+}
 
 type Newable = {
   new(...args: any[]): any
