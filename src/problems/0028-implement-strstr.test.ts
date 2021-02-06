@@ -90,4 +90,4 @@ let tests = new Tests(
   ]
 )
 
-tests.run(strStr2)
+tests.run(strStr1, strStr2)

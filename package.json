@@ -22,7 +22,6 @@
     "compile:docs": "vim wiki/index.wiki -c ':VimwikiAll2HTML' -c ':q'",
     "new:problem": "ts-node lib/GenerateProblem.ts",
     "time:summary": "timew summary 2020-01-01 to tomorrow 'Project 300' | ts-node lib/TimeSummary.ts",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest"
   }
 }
