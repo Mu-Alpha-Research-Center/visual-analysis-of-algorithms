@@ -53,6 +53,7 @@ function hashWithModulo(s: string): number {
 }
 
 function strStr2(haystack: string, needle: string): number {
+  // Rolling hash
   let hash = hashWithModulo(needle)
   let curr = hashWithModulo(haystack.substring(0, needle.length))
   if (curr === hash) {
