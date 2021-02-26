@@ -1,4 +1,0 @@
-https://github.com/jwasham/coding-interview-university
-
-* Pick a single programming language.
-* Use flashcards (e.g. Anki). Repetition over time is the secret to retaining knowledge.
