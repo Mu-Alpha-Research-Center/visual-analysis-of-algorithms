@@ -2,7 +2,7 @@
 
 import Tests from '../TestHelpers'
 
-function setZeroes(matrix: number[][]): number[][] {
+function setZeroes(matrix: number[][]): void {
   const numRows = matrix.length
   const numCols = matrix[0].length
   const rowsWithZero = new Set()
@@ -22,7 +22,6 @@ function setZeroes(matrix: number[][]): number[][] {
       }
     }
   }
-  return matrix
 }
 
 let tests = new Tests(
@@ -36,4 +35,4 @@ let tests = new Tests(
   ]
 )
 
-tests.run(setZeroes)
+tests.runFunc(setZeroes, { inPlace: true })

@@ -19,6 +19,10 @@ type Newable = {
   new(...args: any[]): any
 }
 
+interface Options {
+  inPlace: boolean
+}
+
 export default class Tests {
   tests: any[]
 
@@ -30,19 +34,29 @@ export default class Tests {
     for (let func of funcs) this.runFunc(func)
   }
 
-  runFunc(func: Function): void {
+  runFunc(func: Function, options: Options = { inPlace: false }): void {
     let tests = this.cloneTests()
     for (let i = 0; i < tests.length; i++) {
       let t = tests[i];
-      if (t[t.length - 1] !== 'todo') continue
+      if (t[t.length - 1] !== 'todo') {
+        continue
+      }
       test.todo(this.getTestName(func, t))
       delete tests[i]
     }
-    if (tests.length === 0) return
+    if (tests.length === 0) {
+      return
+    }
     test.each(tests)(this.getTestName(func), (...args) => {
-      let [ok, error] = this.isValid(args)
+      const [ok, error] = this.isValid(args)
       if (ok) {
-        expect(func(...args)).toStrictEqual(args.pop())
+        const expected = args.pop()
+        if (options.inPlace) {
+          func(...args)
+          expect(args[0]).toStrictEqual(expected)
+        } else {
+          expect(func(...args)).toStrictEqual(expected)
+        }
       } else {
         throw(error)
       }
