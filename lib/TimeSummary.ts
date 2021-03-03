@@ -12,7 +12,7 @@ readline
   .on('line', (line: string) => lines.push(line))
   .on('close', () => {
     let completed: Time = Time.fromString(lines[lines.length - 2].trim())
-    let remaining: Time = Time.fromString('200:00:00').subtract(completed)
+    let remaining: Time = Time.fromString('300:00:00').subtract(completed)
 
     console.log(`| ${completed} | ${remaining} |`)
   })
