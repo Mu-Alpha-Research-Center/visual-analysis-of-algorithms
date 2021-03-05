@@ -12,26 +12,29 @@ tests.run(
 )`
 }
 
+function error(message) {
+  console.error(`Error: ${message}`)
+}
+
 function main() {
   let args = process.argv.slice(2)
   if (args.length < 2) {
-    return
+    return error('Missing arguments.')
   }
 
   let num = parseInt(args[0], 10)
   if (isNaN(num)) {
-    return
+    return error('First argument must be a number.')
   }
 
   let path = args[1].split('/')
   let name = path[path.length - 1]
   let numStr = num.toString().padStart(4, '0')
-
   let file = `src/problems/${numStr}-${name}.test.ts`
   let data = template(name)
 
   if (fs.existsSync(file)) {
-    return
+    return error('File already exists.')
   }
 
   fs.writeFileSync(file, data, 'utf8')
