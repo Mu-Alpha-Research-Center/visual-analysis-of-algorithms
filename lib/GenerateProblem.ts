@@ -1,43 +1,48 @@
 import * as fs from 'fs'
+import { program } from 'commander'
 
-function template(name) {
-  return `// https://leetcode.com/problems/${name}
+program
+    .argument('<problem-number>', 'LeetCode problem number')
+    .argument('<problem-name>', 'LeetCode problem name')
+    .option('-o', '--overwrite', false)
+
+function template(name: string): string {
+    return `// https://leetcode.com/problems/${name}
 
 import Tests from '../TestHelpers'
 
 let tests = new Tests(
+  test.skip('skip', () => {})
 )
 
 tests.run(
 )`
 }
 
-function error(message) {
-  console.error(`Error: ${message}`)
-}
-
 function main() {
-  let args = process.argv.slice(2)
-  if (args.length < 2) {
-    return error('Missing arguments.')
-  }
+    program.parse()
 
-  let num = parseInt(args[0], 10)
-  if (isNaN(num)) {
-    return error('First argument must be a number.')
-  }
+    const args = program.args
+    const opts = program.opts()
 
-  let path = args[1].split('/')
-  let name = path[path.length - 1]
-  let numStr = num.toString().padStart(4, '0')
-  let file = `src/problems/${numStr}-${name}.test.ts`
-  let data = template(name)
+    let num = parseInt(args[0], 10)
+    if (isNaN(num)) {
+        return program.error('error: first argument must be an integer')
+    }
 
-  if (fs.existsSync(file)) {
-    return error('File already exists.')
-  }
+    let name = args[1]
+    let numPadded = num.toString().padStart(4, '0')
+    let file = `src/problems/${numPadded}-${name}.test.ts`
 
-  fs.writeFileSync(file, data, 'utf8')
+    if (!opts.o) {
+        if (fs.existsSync(file)) {
+            return program.error(
+                'error: file already exists. pass -o to overwrite'
+            )
+        }
+    }
+
+    fs.writeFileSync(file, template(name), 'utf8')
 }
 
 main()
