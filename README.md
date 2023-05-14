@@ -1,4 +1,4 @@
-# Project 300
+# LeetCode TypeScript
 
 ## Getting Started
 
