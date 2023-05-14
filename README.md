@@ -2,6 +2,5 @@
 
 ## Getting Started
 
-```sh
-nvm install && corepack enable && yarn
-```
+-   `nvm install && corepack enable && yarn`
+-   `yarn test --all`
