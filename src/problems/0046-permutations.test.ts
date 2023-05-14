@@ -11,7 +11,9 @@ function permute(nums: number[]): number[][] {
 
     for (let i = 0; i < nums.length; i++) {
         const n = nums[i]
-        const rest = nums.filter((m) => m != n)
+        const rest = [...nums]
+
+        rest.splice(i, 1)
 
         for (const perm of permute(rest)) {
             result.push([n, ...perm])
