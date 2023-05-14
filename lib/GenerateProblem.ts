@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import { program } from 'commander'
 
 program
+    .name('yarn generate:problem')
     .argument('<problem-number>', 'LeetCode problem number')
     .argument('<problem-name>', 'LeetCode problem name')
     .option('-o', '--overwrite', false)

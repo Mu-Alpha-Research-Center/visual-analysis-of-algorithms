@@ -3,10 +3,18 @@
 ## Getting Started
 
 -   `nvm install && corepack enable && yarn`
--   `yarn test --watch`
+-   `yarn test`
 
 ## Generate Problem
 
-```sh
-yarn generate:problem 46 permutations
+```
+Usage: yarn generate:problem [options] <problem-number> <problem-name>
+
+Arguments:
+  problem-number  LeetCode problem number
+  problem-name    LeetCode problem name
+
+Options:
+  -o              --overwrite (default: false)
+  -h, --help      display help for command
 ```

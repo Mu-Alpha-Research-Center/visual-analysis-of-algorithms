@@ -27,7 +27,7 @@
     },
     "scripts": {
         "generate:problem": "ts-node lib/GenerateProblem.ts",
-        "test": "jest",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "test": "jest"
     }
 }
