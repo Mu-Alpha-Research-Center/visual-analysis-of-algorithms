@@ -12,12 +12,16 @@ function template(name: string): string {
 
 import Tests from '../TestHelpers'
 
+function solution(n: number): number {
+    return n * n
+}
+
 let tests = new Tests(
-  test.skip('skip', () => {})
+    [2, 4],
 )
 
-tests.run(
-)`
+tests.run(solution)
+`
 }
 
 function main() {

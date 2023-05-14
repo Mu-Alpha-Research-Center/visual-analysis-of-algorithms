@@ -2,6 +2,30 @@
 
 import Tests from '../TestHelpers'
 
-let tests = new Tests(test.skip('skip', () => {}))
+function permute(nums: number[]): number[][] {
+    return []
+}
 
-tests.run()
+let tests = new Tests(
+    [[1], [[1]]],
+    [
+        [0, 1],
+        [
+            [0, 1],
+            [1, 0],
+        ],
+    ],
+    [
+        [1, 2, 3],
+        [
+            [1, 2, 3],
+            [1, 3, 2],
+            [2, 1, 3],
+            [2, 3, 1],
+            [3, 1, 2],
+            [3, 2, 1],
+        ],
+    ]
+)
+
+tests.run(permute)
