@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/add-two-numbers/
 
-import ListNode from '../DataStructures/ListNode'
+import ListNode from '../data-structures/ListNode'
 import { runTests } from '../TestHelpers'
 
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
