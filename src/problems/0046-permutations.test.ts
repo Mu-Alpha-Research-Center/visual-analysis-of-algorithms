@@ -2,8 +2,41 @@
 
 import Tests from '../TestHelpers'
 
+// Input: [1, 2, 3]
+// .
+// ├── 1
+// │   ├── 2
+// │   │   └── 3
+// │   └── 3
+// │       └── 2
+// ├── 2
+// │   ├── 1
+// │   │   └── 3
+// │   └── 3
+// │       └── 1
+// └── 3
+//     ├── 1
+//     │   └── 2
+//     └── 2
+//         └── 1
+//
 function permute(nums: number[]): number[][] {
-    return []
+    let result = []
+
+    if (nums.length === 1) {
+        return [nums]
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        const n = nums[i]
+        const rest = nums.filter((m) => m != n)
+
+        for (const perm of permute(rest)) {
+            result.push([n, ...perm])
+        }
+    }
+
+    return result
 }
 
 let tests = new Tests(
