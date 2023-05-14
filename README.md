@@ -3,4 +3,4 @@
 ## Getting Started
 
 -   `nvm install && corepack enable && yarn`
--   `yarn test --all`
+-   `yarn test --watch`
