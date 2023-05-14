@@ -1,5 +1,7 @@
-![Project 300 Logo](images/project-300-logo.png)
+# Project 300
 
-| Time Completed | Time Remaining |
-| -------------- | -------------- |
-| 107:04:43      | 192:55:17      |
+## Getting Started
+
+```sh
+nvm install && corepack enable && yarn
+```
