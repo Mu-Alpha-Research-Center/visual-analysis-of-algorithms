@@ -29,6 +29,6 @@
     "scripts": {
         "generate:problem": "ts-node lib/GenerateProblem.ts",
         "prepare": "husky install",
-        "test": "jest"
+        "test": "jest --watch"
     }
 }
