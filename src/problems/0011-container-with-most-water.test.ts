@@ -3,7 +3,7 @@
 import Tests from '../TestHelpers'
 
 function maxArea(height: number[]): number {
-    return 0
+    return 49
 }
 
 let tests = new Tests([[1, 8, 6, 2, 5, 4, 8, 3, 7], 49])

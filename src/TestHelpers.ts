@@ -47,7 +47,7 @@ export default class Tests {
         if (tests.length === 0) {
             return
         }
-        test.each(tests)(this.getTestName(func), (...args) => {
+        test.each(tests)(this.getTestName(func), async (...args) => {
             const [ok, error] = this.isValid(args)
             if (ok) {
                 const expected = args.pop()
@@ -55,7 +55,12 @@ export default class Tests {
                     func(...args)
                     expect(args[0]).toStrictEqual(expected)
                 } else {
-                    expect(func(...args)).toStrictEqual(expected)
+                    try {
+                        const result = await func(...args)
+                        expect(result).toStrictEqual(expected)
+                    } catch (error) {
+                        expect(error).toStrictEqual(expected)
+                    }
                 }
             } else {
                 throw error
