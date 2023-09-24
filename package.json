@@ -27,7 +27,7 @@
         "prettier": "^3.0.3"
     },
     "scripts": {
-        "generate:problem": "ts-node lib/GenerateProblem.ts",
+        "generate:leetcode-problem": "ts-node lib/GenerateLeetCodeProblem.ts",
         "prepare": "husky install",
         "test": "jest --watch"
     }
