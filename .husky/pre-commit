@@ -3,4 +3,4 @@
 
 npx eslint . --cache --fix
 npx prettier . --cache --write
-git add
+git add .
