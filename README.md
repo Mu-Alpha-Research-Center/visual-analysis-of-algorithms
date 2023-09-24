@@ -10,10 +10,10 @@ Algorithms and data structures implemented in TypeScript.
 
 ## Commands
 
-| Command                          | Description                            |
-| -------------------------------- | -------------------------------------- |
-| `yarn setup`                     | Setup local development environment    |
-| `yarn test`                      | Run tests                              |
-| `yarn test:all`                  | Run all tests                          |
-| `yarn test:watch`                | Watch tests                            |
-| `yarn generate:leetcode-problem` | Generate new LeetCode problem template |
+| Command                          | Description                                 |
+| -------------------------------- | ------------------------------------------- |
+| `yarn setup`                     | Setup local development environment         |
+| `yarn test`                      | Run tests                                   |
+| `yarn test:all`                  | Run all tests                               |
+| `yarn test:watch`                | Watch tests                                 |
+| `yarn generate:leetcode-problem` | Generate new LeetCode problem from template |

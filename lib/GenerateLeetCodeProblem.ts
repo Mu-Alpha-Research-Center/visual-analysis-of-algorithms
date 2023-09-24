@@ -1,16 +1,40 @@
 import * as fs from 'fs'
 import { program } from 'commander'
+import { LeetCode } from 'leetcode-query'
 
-program
-    .name('yarn generate:leetcode-problem')
-    .argument('<problem-number>', 'LeetCode problem number')
-    .argument('<problem-name>', 'LeetCode problem name')
-    .option('-o', '--overwrite', false)
+async function main() {
+    program
+        .argument('<problem-slug>', 'LeetCode problem slug (e.g. two-sum)')
+        .option('-f', '--force', false)
+        .parse()
 
-function template(name: string): string {
-    return `// https://leetcode.com/problems/${name}
+    const args = program.args
+    const opts = program.opts()
+    const problemSlug = args[0].trim()
 
-import Tests from '../TestHelpers'
+    const leetcode = new LeetCode()
+    const problem = await leetcode.problem(problemSlug)
+
+    if (!problem) {
+        return program.error(`Invalid problem slug.`)
+    }
+
+    const problemId = problem.questionId.padStart(4, '0')
+    const file = `src/leetcode/problems/${problemId}-${problemSlug}.test.ts`
+
+    if (!opts.o && fs.existsSync(file)) {
+        return program.error(
+            'File already exists. Set `-f` or `--force` to overwrite.'
+        )
+    }
+
+    fs.writeFileSync(file, template(problemSlug), 'utf8')
+}
+
+function template(problemSlug: string): string {
+    return `// https://leetcode.com/problems/${problemSlug}/description
+
+import Tests from '../../TestHelpers'
 
 function solution(n: number): number {
     return n * n
@@ -22,32 +46,6 @@ let tests = new Tests(
 
 tests.run(solution)
 `
-}
-
-function main() {
-    program.parse()
-
-    const args = program.args
-    const opts = program.opts()
-
-    let num = parseInt(args[0], 10)
-    if (isNaN(num)) {
-        return program.error('error: first argument must be an integer')
-    }
-
-    let name = args[1]
-    let numPadded = num.toString().padStart(4, '0')
-    let file = `src/problems/${numPadded}-${name}.test.ts`
-
-    if (!opts.o) {
-        if (fs.existsSync(file)) {
-            return program.error(
-                'error: file already exists. pass -o to overwrite'
-            )
-        }
-    }
-
-    fs.writeFileSync(file, template(name), 'utf8')
 }
 
 main()
