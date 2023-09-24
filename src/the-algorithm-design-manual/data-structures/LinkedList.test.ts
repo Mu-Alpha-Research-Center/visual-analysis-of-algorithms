@@ -10,7 +10,7 @@ interface ILinkedList<T> {
 }
 
 class LinkedList<T> implements ILinkedList<T> {
-    constructor(public head?: LinkedListNode<T>) {}
+    constructor(private head?: LinkedListNode<T>) {}
 
     public insert(item: T) {
         if (this.head === null) {
@@ -20,3 +20,18 @@ class LinkedList<T> implements ILinkedList<T> {
         }
     }
 }
+
+test('insert', () => {
+    const list = new LinkedList()
+
+    list.insert(3)
+    list.insert(2)
+    list.insert(1)
+
+    expect(list).toEqual({
+        head: {
+            item: 1,
+            next: { item: 2, next: { item: 3, next: undefined } },
+        },
+    })
+})
