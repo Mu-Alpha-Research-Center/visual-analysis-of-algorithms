@@ -3,7 +3,7 @@
 ## Getting Started
 
 -   Install [nvm](https://github.com/nvm-sh/nvm)
--   `nvm install && corepack enable && yarn`
+-   `nvm install && nvm use && corepack enable && yarn`
 -   `yarn test`
 
 ## Commands

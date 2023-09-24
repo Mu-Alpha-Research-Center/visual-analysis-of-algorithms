@@ -1,6 +1,6 @@
 {
-    "name": "leetcode-typescript",
-    "description": "...",
+    "name": "typescript-algorithms",
+    "description": "TypeScript Algorithms",
     "licence": "MIT",
     "dependencies": {
         "@babel/core": "7.22.20",

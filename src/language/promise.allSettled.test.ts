@@ -1,6 +1,6 @@
 import Tests from '../TestHelpers'
 
-async function allSettled<T>(promises: Promise<T>[]) {
+async function allSettled<T>(promises: Promise<T>[]): Promise<T[]> {
     return new Promise((resolve) => {
         const results = []
         let promisesRemaining = promises.length
