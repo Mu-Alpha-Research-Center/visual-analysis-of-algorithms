@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx eslint . --cache --fix
-npx prettier . --cache --write
+npx prettier . --cache --write > /dev/null
 git add .

@@ -8,7 +8,7 @@
 
 ## Commands
 
-| Command                             | Description                                 |
-| ----------------------------------- | ------------------------------------------- |
-| `yarn test`                         | Run tests in watch mode                     |
-| `yarn generate:leetcode-problem -h` | Generate new LeetCode problem from template |
+| Command                             | Description                            |
+| ----------------------------------- | -------------------------------------- |
+| `yarn test`                         | Watch tests                            |
+| `yarn generate:leetcode-problem -h` | Generate new LeetCode problem template |
