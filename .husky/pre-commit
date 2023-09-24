@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx prettier . --write
-npx eslint . --fix
+npx eslint . --cache --fix
+npx prettier . --cache --write
