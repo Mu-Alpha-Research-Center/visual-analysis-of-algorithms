@@ -20,36 +20,36 @@ class LinkedList<T> implements ILinkedList<T> {
         }
     }
 
-    public insert(item: T) {
-        if (this.head === null) {
-            this.head = new LinkedListNode(item)
-        } else {
-            this.head = new LinkedListNode(item, this.head)
+    *[Symbol.iterator]() {
+        let node = this.head
+        while (node) {
+            yield node
+            node = node.next
         }
     }
 
+    public insert(item: T) {
+        this.head = new LinkedListNode(item, this.head)
+    }
+
     public search(item: T): LinkedListNode<T> | null {
-        let curr = this.head
-        while (curr) {
-            if (curr.item === item) {
-                return curr
+        for (const node of this) {
+            if (node.item === item) {
+                return node
             }
-            curr = curr.next
         }
         return null
     }
 
     public delete(item: T) {
         let prev = null
-        let curr = this.head
-        while (curr) {
-            if (curr.item === item) {
+        for (const node of this) {
+            if (node.item === item) {
+                prev.next = node.next
                 break
             }
-            prev = curr
-            curr = curr.next
+            prev = node
         }
-        prev.next = curr.next
     }
 }
 
