@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/kth-largest-element-in-an-array
 
 import Tests from '../TestHelpers'
-import Heap from 'heap-js'
+import { Heap } from 'heap-js'
 
 function findKthLargest1(nums: number[], k: number): number {
     return nums.sort((a, b) => b - a)[k - 1]

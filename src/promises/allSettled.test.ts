@@ -1,16 +1,24 @@
 import Tests from '../TestHelpers'
 
 async function allSettled<T>(promises: Promise<T>[]) {
-    const results = []
-    for (const promise of promises) {
-        try {
-            const value = await promise
-            results.push({ status: 'fulfilled', value })
-        } catch (reason) {
-            results.push({ status: 'rejected', reason })
+    return new Promise((resolve) => {
+        const results = []
+        let promisesRemaining = promises.length
+
+        for (const promise of promises) {
+            promise
+                .then((value) => results.push({ status: 'fulfilled', value }))
+                .catch((error) =>
+                    results.push({ status: 'rejected', reason: error })
+                )
+                .finally(() => {
+                    promisesRemaining--
+                    if (promisesRemaining === 0) {
+                        resolve(results)
+                    }
+                })
         }
-    }
-    return results
+    })
 }
 
 let tests = new Tests(
