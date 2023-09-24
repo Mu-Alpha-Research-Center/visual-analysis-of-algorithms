@@ -34,6 +34,7 @@ function twoSum3(nums: number[], target: number): number[] {
     let map: Record<number, number> = {}
     for (let i = 0; i < nums.length; i++) {
         let complement = target - nums[i]
+
         if (complement in map) {
             return [map[complement], i]
         }
