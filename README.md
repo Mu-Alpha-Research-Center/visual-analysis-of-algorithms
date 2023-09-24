@@ -1,4 +1,4 @@
-# LeetCode TypeScript
+# TypeScript Algorithms
 
 ## Getting Started
 
