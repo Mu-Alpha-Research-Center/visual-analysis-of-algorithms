@@ -26,6 +26,9 @@
     "scripts": {
         "generate:leetcode-problem": "ts-node lib/GenerateLeetCodeProblem.ts",
         "prepare": "husky install",
-        "test": "jest --watch"
+        "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn",
+        "test": "jest",
+        "test:all": "jest --all",
+        "test:watch": "jest --watch"
     }
 }
