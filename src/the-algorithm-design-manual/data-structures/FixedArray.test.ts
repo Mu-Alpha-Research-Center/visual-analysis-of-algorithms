@@ -6,13 +6,16 @@ export default class FixedArray<T> extends Array<T> {
 }
 
 test('add property', () => {
-    const a = new FixedArray<number>(2)
+    const arraySize = 2
+    const array = new FixedArray<number>(arraySize)
+    const j = arraySize + 1
 
-    a[0] = 1
-    a[1] = 2
+    for (let i = 0; i < arraySize; i++) {
+        array[i] = i
+    }
 
-    expect(() => {
-        a[2] = 3
-    }).toThrowError()
-    expect(a).toEqual([1, 2])
+    expect(() => (array[j] = 2)).toThrowError(
+        `Cannot add property ${j}, object is not extensible`
+    )
+    expect(array).toEqual([0, 1])
 })
