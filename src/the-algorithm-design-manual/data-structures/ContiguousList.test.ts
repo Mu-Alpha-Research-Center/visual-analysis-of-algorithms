@@ -1,18 +1,16 @@
+import FixedArray from './FixedArray.test'
+
 interface IContiguousList<T> {
     insert(item: T): void
     search(item: T): T | null
     delete(item: T): void
 }
 
-function newFixedSizeArray(size: number) {
-    return Object.seal(new Array(size).fill(undefined))
-}
-
 class ContiguousList<T> implements IContiguousList<T> {
     public items: T[]
 
     constructor(...items: T[]) {
-        this.items = newFixedSizeArray(items.length)
+        this.items = new FixedArray(items.length)
         for (let i = 0; i < items.length; i++) {
             this.items[i] = items[i]
         }
@@ -26,7 +24,7 @@ class ContiguousList<T> implements IContiguousList<T> {
 
     public insert(item: T) {
         const newLength = this.items.length + 1
-        const newItems = newFixedSizeArray(newLength)
+        const newItems = new FixedArray<T>(newLength)
 
         newItems[0] = item
         for (let i = 0; i < this.items.length; i++) {
@@ -55,7 +53,7 @@ class ContiguousList<T> implements IContiguousList<T> {
         }
 
         const newLength = this.items.length - 1
-        const newItems = newFixedSizeArray(newLength)
+        const newItems = new FixedArray<T>(newLength)
         for (let j = 0; j < i; j++) {
             newItems[j] = this.items[j]
         }
