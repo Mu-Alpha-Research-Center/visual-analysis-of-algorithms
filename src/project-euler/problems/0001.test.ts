@@ -5,7 +5,7 @@
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
 import Tests from '../../TestHelpers'
-import { range } from 'lodash'
+import { range } from '../utils'
 
 function solution(n: number): number {
     let sum = 0

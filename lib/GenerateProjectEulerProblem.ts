@@ -24,7 +24,7 @@ async function main() {
         )
     }
 
-    const res = await fetch('https://projecteuler.net/minimal=1')
+    const res = await fetch(`https://projecteuler.net/minimal=${problemNumber}`)
     const html = await res.text()
     const problemText = parseProblemText(html)
 
