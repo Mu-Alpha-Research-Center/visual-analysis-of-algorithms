@@ -5,3 +5,7 @@ export function isEven(n: number): boolean {
 export function isOdd(n: number): boolean {
     return !isEven(n)
 }
+
+export function divisibleBy(a: number, b: number): boolean {
+    return a % b === 0
+}

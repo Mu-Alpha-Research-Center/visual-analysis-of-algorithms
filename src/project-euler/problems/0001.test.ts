@@ -5,12 +5,12 @@
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
 import Tests from '../../TestHelpers'
-import { range } from '../utils'
+import { divisibleBy, range } from '../utils'
 
 function solution(n: number): number {
     let sum = 0
     for (const m of range(1, n)) {
-        if (m % 3 === 0 || m % 5 === 0) {
+        if (divisibleBy(m, 3) || divisibleBy(m, 5)) {
             sum += m
         }
     }
