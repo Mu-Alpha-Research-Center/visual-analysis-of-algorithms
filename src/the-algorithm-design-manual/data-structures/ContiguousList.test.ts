@@ -47,10 +47,10 @@ class ContiguousList<T> implements IContiguousList<T> {
         if (itemIndex === -1) {
             return
         }
-        // Allocate new fixed size array of length - 1 and
-        // copy items from old array into new array in a single pass by
-        // keeping track of 2 pointers into each array (i, j) and only
-        // incrementing the 2 pointer when i !== itemIndex.
+        // Allocate new fixed size array of length - 1
+        // and copy items from old array into new array in a single pass
+        // by keeping track of 2 pointers into each array (i, j)
+        // and only incrementing j when i !== itemIndex.
         const array = new FixedArray<T>(this.items.length - 1)
         let j = 0
         for (let i = 0; i < this.items.length; i++) {
