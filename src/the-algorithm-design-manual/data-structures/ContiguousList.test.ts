@@ -4,11 +4,18 @@ interface IContiguousList<T> {
     delete(item: T): void
 }
 
+function newFixedSizeArray(size: number) {
+    return Object.seal(new Array(size).fill(undefined))
+}
+
 class ContiguousList<T> implements IContiguousList<T> {
-    public items: T[] = []
+    public items: T[]
 
     constructor(...items: T[]) {
-        this.items = [...this.items, ...items]
+        this.items = newFixedSizeArray(items.length)
+        for (let i = 0; i < items.length; i++) {
+            this.items[i] = items[i]
+        }
     }
 
     *[Symbol.iterator]() {
@@ -18,7 +25,15 @@ class ContiguousList<T> implements IContiguousList<T> {
     }
 
     public insert(item: T) {
-        this.items.unshift(item)
+        const newLength = this.items.length + 1
+        const newItems = newFixedSizeArray(newLength)
+
+        newItems[0] = item
+        for (let i = 0; i < this.items.length; i++) {
+            newItems[i + 1] = this.items[i]
+        }
+
+        this.items = newItems
     }
 
     public search(otherItem: T): T | null {
@@ -34,11 +49,21 @@ class ContiguousList<T> implements IContiguousList<T> {
         let i = 0
         for (const item of this) {
             if (item === otherItem) {
-                this.items.splice(i, 1)
                 break
             }
             i++
         }
+
+        const newLength = this.items.length - 1
+        const newItems = newFixedSizeArray(newLength)
+        for (let j = 0; j < i; j++) {
+            newItems[j] = this.items[j]
+        }
+        for (let j = newLength; j > i; j--) {
+            newItems[j - 1] = this.items[j]
+        }
+
+        this.items = newItems
     }
 }
 
@@ -60,9 +85,9 @@ test('search', () => {
 })
 
 test('delete', () => {
-    const list = new ContiguousList(1, 2, 3)
+    const list = new ContiguousList(1, 2, 3, 4, 5)
 
     list.delete(2)
 
-    expect(list.items).toEqual([1, 3])
+    expect(list.items).toEqual([1, 3, 4, 5])
 })
