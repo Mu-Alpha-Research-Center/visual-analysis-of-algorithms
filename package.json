@@ -1,6 +1,6 @@
 {
     "name": "typescript-algorithms",
-    "description": "TypeScript Algorithms",
+    "description": "Algorithms and data structures implemented in TypeScript.",
     "licence": "MIT",
     "dependencies": {
         "@babel/core": "7.23.0",
@@ -27,7 +27,7 @@
     "scripts": {
         "generate:leetcode-problem": "ts-node lib/GenerateLeetCodeProblem.ts",
         "prepare": "husky install",
-        "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn",
+        "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn cache clean; yarn",
         "test": "jest"
     }
 }
