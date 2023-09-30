@@ -21,7 +21,7 @@ async function main() {
     const problemId = problem.questionId.padStart(4, '0')
     const file = `src/leetcode/problems/${problemId}-${problemSlug}.test.ts`
 
-    if (!opts.o && fs.existsSync(file)) {
+    if (!opts.f && fs.existsSync(file)) {
         return program.error(
             'File already exists. Set `-f` or `--force` to overwrite.'
         )
@@ -39,9 +39,7 @@ function solution(n: number): number {
     return n * n
 }
 
-const tests = new Tests(
-    [2, 4],
-)
+const tests = new Tests([2, 4])
 
 tests.run(solution)
 `
