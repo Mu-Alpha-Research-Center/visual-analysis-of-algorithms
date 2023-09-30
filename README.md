@@ -25,6 +25,6 @@ Algorithms and data structures implemented in TypeScript.
 
 ## Appendix
 
--   https://leetcode.com
--   https://projecteuler.net
--   https://www.algorist.com
+-   [LeetCode](https://leetcode.com)
+-   [Project Euler](https://projecteuler.net)
+-   [The Algorithm Design Manual](https://www.algorist.com)
