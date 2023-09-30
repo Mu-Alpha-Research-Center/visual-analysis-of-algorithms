@@ -16,6 +16,7 @@
         "heap-js": "^2.3.0",
         "husky": "^8.0.0",
         "jest": "29.7.0",
+        "leetcode-query": "^0.2.7",
         "lint-staged": "^14.0.1",
         "lodash": "4.17.21",
         "prettier": "^3.0.3",
@@ -27,11 +28,6 @@
         "generate:leetcode-problem": "ts-node lib/GenerateLeetCodeProblem.ts",
         "prepare": "husky install",
         "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn",
-        "test": "jest",
-        "test:all": "jest --all",
-        "test:watch": "jest --watch"
-    },
-    "devDependencies": {
-        "leetcode-query": "^0.2.7"
+        "test": "jest"
     }
 }

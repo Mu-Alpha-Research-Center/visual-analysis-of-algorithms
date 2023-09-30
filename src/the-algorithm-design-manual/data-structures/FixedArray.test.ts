@@ -9,11 +9,9 @@ test('add property', () => {
     const arraySize = 2
     const array = new FixedArray<number>(arraySize)
     const j = arraySize + 1
-
     for (let i = 0; i < arraySize; i++) {
         array[i] = i
     }
-
     expect(() => (array[j] = 2)).toThrowError(
         `Cannot add property ${j}, object is not extensible`
     )
