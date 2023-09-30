@@ -10,8 +10,7 @@ async function main() {
 
     const args = program.args
     const opts = program.opts()
-    const problemSlug = args[0].trim()
-
+    const problemSlug = args[0]?.trim()
     const leetcode = new LeetCode()
     const problem = await leetcode.problem(problemSlug)
 
@@ -40,7 +39,7 @@ function solution(n: number): number {
     return n * n
 }
 
-let tests = new Tests(
+const tests = new Tests(
     [2, 4],
 )
 
