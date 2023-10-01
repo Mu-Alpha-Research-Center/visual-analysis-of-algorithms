@@ -1,10 +1,11 @@
 .PHONY: phony
 
 PANDOC_FLAGS =                       \
-  --file-scope                       \
-  --table-of-contents                \
   --pdf-engine=pdflatex              \
   --from=markdown                    \
+  --resource-path=book               \
+  --file-scope                       \
+  --table-of-contents                \
   --number-sections                  \
   --indented-code-classes=javascript \
   --highlight-style=monochrome       \
@@ -14,13 +15,12 @@ PANDOC_FLAGS =                       \
   -V geometry:margin=1in
 
 MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
-FIGURES = $(shell find . -name '*.svg')
 
 clean: phony
 	rm -rf output/*
 
 book: phony clean
-	pandoc $(PANDOC_FLAGS) -o output/book.pdf $(MARKDOWN_FILES) $(FIGURES)
+	pandoc $(PANDOC_FLAGS) -o output/book.pdf $(MARKDOWN_FILES)
 
 watch: phony
 	fswatch -o -r book/*.md | xargs -n1 -I{} make book
