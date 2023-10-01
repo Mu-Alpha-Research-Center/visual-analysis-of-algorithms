@@ -14,13 +14,13 @@ PANDOC_FLAGS =                       \
   -V geometry:margin=1in
 
 MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
-FIGURES = $(shell find . -name '*.png')
+FIGURES = $(shell find . -name '*.svg')
 
 clean: phony
 	rm -rf book/output/*
 
 book: phony clean
-	pandoc $(PANDOC_FLAGS) -o book/output/index.pdf $(MARKDOWN_FILES)
+	pandoc $(PANDOC_FLAGS) -o book/output/index.pdf $(MARKDOWN_FILES) $(FIGURES)
 
 watch: phony
 	fswatch -o -r book/*.md | xargs -n1 -I{} make book

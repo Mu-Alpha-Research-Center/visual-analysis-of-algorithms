@@ -1,14 +1,14 @@
-# Contributing
+## Contributing
 
-## Getting Started
+### Getting Started
 
-### Run Problem Tests
+#### Run Problem Tests
 
 -   Install [Node Version Manager](https://github.com/nvm-sh/nvm)
 -   `yarn setup`
 -   `yarn test --all`
 
-### Compile Book
+#### Compile Book
 
 -   Install [Pandoc](https://pandoc.org) ([Homebrew](https://formulae.brew.sh/formula/pandoc))
 -   Install BasicTeX ([Homebrew](https://formulae.brew.sh/cask/basictex))
@@ -16,7 +16,7 @@
 -   `make book`
 -   `open book/output/index.pdf`
 
-## Commands
+### Commands
 
 | Command                  | Description                                           |
 | ------------------------ | ----------------------------------------------------- |

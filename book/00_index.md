@@ -1,4 +1,5 @@
 ---
 title: TypeScript Algorithms
-author: Hara Hachibu
 ---
+
+![](images/typescript-algorithms-logo.svg)
