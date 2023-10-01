@@ -1,6 +1,7 @@
 .PHONY: phony
 
 PANDOC_FLAGS =                       \
+  --file-scope                       \
   --table-of-contents                \
   --pdf-engine=pdflatex              \
   --from=markdown                    \
@@ -12,7 +13,7 @@ PANDOC_FLAGS =                       \
   -V papersize=A5                    \
   -V geometry:margin=1in
 
-MARKDOWN_FILES = $(shell find book -name '*.md')
+MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
 FIGURES = $(shell find . -name '*.png')
 
 clean: phony
