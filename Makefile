@@ -17,10 +17,10 @@ PANDOC_FLAGS =                       \
   -V geometry:margin=1in
 
 clean: phony
-	rm -rf output/*
+	rm -rf book/output/*
 
 book: phony clean
-	pandoc $(PANDOC_FLAGS) -o output/book.pdf $(MARKDOWN_FILES)
+	pandoc $(PANDOC_FLAGS) -o book/output/typescript-algorithms.pdf $(MARKDOWN_FILES)
 
 watch: phony
 	fswatch -o -r book/*.md | xargs -n1 -I{} make book

@@ -6,5 +6,5 @@
 
 In-progress book about algorithms and data structures in TypeScript.
 
--   [PDF](output/book.pdf)
+-   [PDF](book/output/typescript-algorithms.pdf)
 -   [Markdown](book)
