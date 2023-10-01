@@ -1,7 +1,7 @@
 {
     "name": "typescript-algorithms",
-    "description": "Algorithms and data structures implemented in TypeScript.",
     "licence": "MIT",
+    "private": true,
     "dependencies": {
         "@babel/core": "7.23.0",
         "@babel/preset-env": "7.22.20",
