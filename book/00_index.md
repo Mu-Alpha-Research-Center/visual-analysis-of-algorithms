@@ -2,4 +2,4 @@
 title: TypeScript Algorithms
 ---
 
-![](images/typescript-algorithms-logo.svg)
+![](images/typescript-algorithms-logo.png)
