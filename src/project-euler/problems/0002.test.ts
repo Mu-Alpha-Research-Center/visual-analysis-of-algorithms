@@ -7,19 +7,10 @@
 // exceed four million, find the sum of the even-valued terms.
 
 import Tests from '../../TestHelpers'
-import { isEven, generateFibonacci } from '../utils'
+import { sum, isEven, genFib } from '../utils'
 
 function solution(): number {
-    let sum = 0
-    for (const n of generateFibonacci()) {
-        if (n > 4_000_000) {
-            break
-        }
-        if (isEven(n)) {
-            sum += n
-        }
-    }
-    return sum
+    return sum([...genFib(4_000_000)].filter(isEven))
 }
 
 const tests = new Tests([undefined, 4_613_732])

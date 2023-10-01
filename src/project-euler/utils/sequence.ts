@@ -1,27 +1,38 @@
-export function* range(a: number, b: number) {
+export function* genRange(a: number, b: number) {
     for (let n = a; n < b; n++) {
         yield n
     }
 }
 
-export function* generateFibonacci() {
+export function range(a: number, b: number): number[] {
+    let nums = []
+    for (let n = a; n < b; n++) {
+        nums.push(n)
+    }
+    return nums
+}
+
+export function* genFib(max: number) {
     const memo = {}
     let n = 1
     while (true) {
-        if (n in memo) {
-            yield memo[n]
-        } else {
-            const m = fibonacci(n)
-            memo[n] = m
-            yield m
+        let m: number = n in memo ? memo[n] : fib(n)
+        if (m > max) {
+            break
         }
+        yield m
+        memo[n] = m
         n++
     }
 }
 
-export function fibonacci(n: number): number {
+export function fib(n: number): number {
     if (n <= 2) {
         return n
     }
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    return fib(n - 1) + fib(n - 2)
+}
+
+export function sum(numbers: number[]): number {
+    return numbers.reduce((a, n) => a + n, 0)
 }
