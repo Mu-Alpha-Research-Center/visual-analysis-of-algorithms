@@ -3,7 +3,7 @@
 ## Fibonacci Sequence
 
 <p align="center">
-  <img src="../images/fibonacci-recursion.png" width="50%" />
+  <img src="../images/fibonacci-sequence-recursion.png" width="50%" />
 </p>
 
 $$
