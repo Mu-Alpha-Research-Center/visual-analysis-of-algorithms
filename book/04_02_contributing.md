@@ -16,7 +16,11 @@
 -   `make book`
 -   `open book/output/index.pdf`
 
-### Commands
+#### Editing Diagrams
+
+-   Install [Excalidraw VSCode Extension](https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor)
+
+#### Commands
 
 | Command                  | Description                                           |
 | ------------------------ | ----------------------------------------------------- |
