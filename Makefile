@@ -17,10 +17,10 @@ MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
 FIGURES = $(shell find . -name '*.svg')
 
 clean: phony
-	rm -rf book/output/*
+	rm -rf output/*
 
 book: phony clean
-	pandoc $(PANDOC_FLAGS) -o book/output/index.pdf $(MARKDOWN_FILES) $(FIGURES)
+	pandoc $(PANDOC_FLAGS) -o output/book.pdf $(MARKDOWN_FILES) $(FIGURES)
 
 watch: phony
 	fswatch -o -r book/*.md | xargs -n1 -I{} make book
