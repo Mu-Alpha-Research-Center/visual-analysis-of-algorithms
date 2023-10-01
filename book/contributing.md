@@ -6,13 +6,11 @@
 -   `yarn setup`
 -   `yarn test --all`
 
-## Commands
+## Package.json Commands
 
-| Command                               | Description                         |
-| ------------------------------------- | ----------------------------------- |
-| `yarn setup`                          | Setup local development environment |
-| `yarn test`                           | Run tests                           |
-| `yarn test --all`                     | Run all tests                       |
-| `yarn test --watch`                   | Watch tests                         |
-| `yarn generate:leetcode-problem`      | Generate new LeetCode problem       |
-| `yarn generate:project-euler-problem` | Generate new Project Euler problem  |
+| Command                  | Description                         |
+| ------------------------ | ----------------------------------- |
+| `yarn setup`             | Setup local development environment |
+| `yarn test`              | Run tests                           |
+| `yarn gen:leetcode`      | Generate new LeetCode problem       |
+| `yarn gen:project-euler` | Generate new Project Euler problem  |

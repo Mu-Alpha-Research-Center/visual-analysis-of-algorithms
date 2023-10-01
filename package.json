@@ -26,8 +26,8 @@
         "typescript": "5.2.2"
     },
     "scripts": {
-        "generate:leetcode-problem": "ts-node lib/GenerateLeetCodeProblem.ts",
-        "generate:project-euler-problem": "ts-node lib/GenerateProjectEulerProblem.ts",
+        "gen:leetcode": "ts-node lib/GenerateLeetCodeProblem.ts",
+        "gen:project-euler": "ts-node lib/GenerateProjectEulerProblem.ts",
         "prepare": "husky install",
         "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn cache clean; yarn",
         "test": "jest"
