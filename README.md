@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./book/images/typescript-algorithms-logo.png" alt="typescript algorithms logo" width="50%"/>
+  <img src="./book/images/typescript-algorithms-mock.png" alt="typescript algorithms logo" width="50%"/>
 </p>
 
 ---
