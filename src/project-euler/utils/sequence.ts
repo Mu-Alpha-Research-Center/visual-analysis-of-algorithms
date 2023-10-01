@@ -12,12 +12,12 @@ export function range(a: number, b: number): number[] {
     return nums
 }
 
-export function* genFib(max: number) {
+export function* genFib(max?: number) {
     const memo = {}
     let n = 1
     while (true) {
         let m: number = n in memo ? memo[n] : fib(n)
-        if (m > max) {
+        if (m && m > max) {
             break
         }
         yield m
