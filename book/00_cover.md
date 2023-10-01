@@ -1,5 +1,5 @@
 ---
 title: |
     ![](images/typescript-algorithms-logo.png)
-author: Hara Hachibu
+subtitle: Version 0.0.1
 ---
