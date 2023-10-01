@@ -1,5 +1,7 @@
 .PHONY: phony
 
+MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
+
 PANDOC_FLAGS =                       \
   --pdf-engine=pdflatex              \
   --from=markdown                    \
@@ -13,8 +15,6 @@ PANDOC_FLAGS =                       \
   -V documentclass=report            \
   -V papersize=A5                    \
   -V geometry:margin=1in
-
-MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
 
 clean: phony
 	rm -rf output/*
