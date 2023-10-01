@@ -22,11 +22,10 @@
 
 #### Commands
 
-| Command                  | Description                                           |
-| ------------------------ | ----------------------------------------------------- |
-| `yarn setup`             | Setup local development environment                   |
-| `yarn test`              | Run tests                                             |
-| `yarn gen:leetcode`      | Generate new LeetCode problem                         |
-| `yarn gen:project-euler` | Generate new Project Euler problem                    |
-| `make book`              | Compile book to various formats                       |
-| `make watch`             | Recompile book automatically when source files change |
+| Command                 | Description                                           |
+| ----------------------- | ----------------------------------------------------- |
+| `yarn setup`            | Setup local development environment                   |
+| `yarn test`             | Run tests                                             |
+| `yarn generate:problem` | Generate new LeetCode or Project Euler problem        |
+| `make book`             | Compile book to various formats                       |
+| `make watch`            | Recompile book automatically when source files change |
