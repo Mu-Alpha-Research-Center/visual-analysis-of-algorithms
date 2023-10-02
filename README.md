@@ -31,7 +31,7 @@ In-progress book about algorithms and data structures in TypeScript.
 ### Commands
 
 | Command                 | Description                                           |
-| ----------------------- | ----------------------------------------------------- |
+| :---------------------- | :---------------------------------------------------- |
 | `yarn setup`            | Setup local development environment                   |
 | `yarn test`             | Run problem tests                                     |
 | `yarn generate:problem` | Generate new LeetCode or Project Euler problem        |
