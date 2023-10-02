@@ -43,7 +43,7 @@ function parseProblemHTML(html: string): string {
     const $ = load(html)
     const lines = $('p')
     for (const line of lines) {
-        let lineText = $(line).text().replace(/\$/g, '')
+        const lineText = $(line).text().replace(/\$/g, '')
         problemText += `// ${lineText}\n`
     }
     return problemText

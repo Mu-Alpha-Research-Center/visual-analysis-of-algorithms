@@ -6,14 +6,11 @@ export function writeFile(
     force: boolean = false
 ): Error {
     if (!force && fs.existsSync(file)) {
-        return new Error(
-            'File already exists. Set `-f` or `--force` to overwrite.'
-        )
+        return new Error('File already exists. Set --force to overwrite.')
     }
     try {
         fs.writeFileSync(file, data, 'utf8')
     } catch (error) {
         return error
     }
-    return null
 }
