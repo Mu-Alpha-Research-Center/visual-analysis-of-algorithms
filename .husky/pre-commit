@@ -3,4 +3,5 @@
 
 npx eslint . --cache --fix
 npx prettier . --cache --write > /dev/null
+make book
 git add .

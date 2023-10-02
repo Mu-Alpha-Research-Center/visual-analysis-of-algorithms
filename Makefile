@@ -9,12 +9,12 @@ PANDOC_FLAGS =                       \
   --file-scope                       \
   --table-of-contents                \
   --number-sections                  \
-  --indented-code-classes=javascript \
+  --indented-code-classes=typescript \
   --highlight-style=monochrome       \
   -V mainfont="Palatino"             \
   -V documentclass=report            \
   -V papersize=A5                    \
-  -V geometry:margin=1in
+  -V geometry:margin=0.75in
 
 clean: phony
 	rm -rf book/output/*
