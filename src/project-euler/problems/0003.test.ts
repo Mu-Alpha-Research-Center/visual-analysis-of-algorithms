@@ -10,6 +10,7 @@ function solution(n: number): number {
     const primeFactors = [...genRange(2, n)].filter(
         (m) => isDivBy(n, m) && isPrime(m)
     )
+
     return primeFactors.at(-1)
 }
 
