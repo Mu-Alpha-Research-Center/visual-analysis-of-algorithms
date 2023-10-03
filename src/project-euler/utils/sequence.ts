@@ -1,12 +1,20 @@
-export function* genRange(a: number, b: number) {
-    for (let n = a; n < b; n++) {
+export function* genRange(beg: number, end: number) {
+    for (let n = beg; n < end; n++) {
         yield n
     }
 }
 
-export function range(a: number, b: number): number[] {
+export function range(beg: number, end: number): number[] {
     let nums = []
-    for (let n = a; n < b; n++) {
+    for (let n = beg; n <= end; n++) {
+        nums.push(n)
+    }
+    return nums
+}
+
+export function reverseRange(beg: number, end: number): number[] {
+    let nums = []
+    for (let n = end; n >= beg; n--) {
         nums.push(n)
     }
     return nums
