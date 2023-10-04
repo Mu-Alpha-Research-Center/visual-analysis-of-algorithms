@@ -3,6 +3,14 @@ export default class FixedArray<T> extends Array<T> {
         super(size)
         Object.seal(this.fill(undefined))
     }
+
+    static from<T>(...items: T[]): FixedArray<T> {
+        const array = new FixedArray<T>(items.length)
+        for (let i = 0; i < items.length; i++) {
+            array[i] = items[i]
+        }
+        return array
+    }
 }
 
 test('add property', () => {

@@ -10,11 +10,7 @@ class ContiguousList<T> implements IContiguousList<T> {
     public items: T[]
 
     constructor(...items: T[]) {
-        const array = new FixedArray<T>(items.length)
-        for (let i = 0; i < items.length; i++) {
-            array[i] = items[i]
-        }
-        this.items = array
+        this.items = FixedArray.from(...items)
     }
 
     public insert(item: T) {
