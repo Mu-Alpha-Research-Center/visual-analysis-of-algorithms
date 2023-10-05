@@ -28,7 +28,7 @@
     "scripts": {
         "generate:problem": "ts-node src/generate-problem/index.ts",
         "prepare": "husky install",
-        "setup": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn cache clean; yarn",
+        "preinstall": "source $HOME/.nvm/nvm.sh; nvm use; corepack enable; yarn cache clean",
         "test": "jest"
     }
 }

@@ -19,8 +19,13 @@ PANDOC_FLAGS =                       \
 clean: phony
 	rm -rf book/output/*
 
+install: phony
+	brew bundle --no-lock
+	yarn
+
 book: phony clean
 	pandoc $(PANDOC_FLAGS) -o book/output/typescript-algorithms.pdf $(MARKDOWN_FILES)
+	open book/output/typescript-algorithms.pdf
 
-watch: phony
+book-watch: phony book
 	fswatch -o -r book/*.md | xargs -n1 -I{} make book
