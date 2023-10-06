@@ -27,7 +27,7 @@ class FixedStack<T> implements IStack<T> {
         if (this.size === this.items.length) {
             throw new Error('Out of Memory')
         }
-        const newItems = new FixedArray<T>(3)
+        const newItems = new FixedArray<T>(this.items.length)
         for (let i = 0; i < this.items.length - 1; i++) {
             let j = i + 1
             newItems[j] = this.items[i]
