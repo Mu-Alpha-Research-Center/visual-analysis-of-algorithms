@@ -6,10 +6,10 @@
 // What is the 10,001st prime number?
 
 import Tests from '../../TestHelpers'
-import { genPrimes } from '../utils'
+import { primeNumbers } from '../utils'
 
 function solution(n: number): number {
-    for (const m of genPrimes()) {
+    for (const m of primeNumbers()) {
         if (n === 1) {
             return m
         }

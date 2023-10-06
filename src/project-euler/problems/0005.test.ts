@@ -5,10 +5,10 @@
 // evenly divisible with no remainder by all of the numbers from 1 to 20?
 
 import Tests from '../../TestHelpers'
-import { genRange, range, isDivByAll } from '../utils'
+import { range, isDivByAll } from '../utils'
 
 function solution(max: number): number {
-    for (const n of genRange(1)) {
+    for (const n of range(1)) {
         if (isDivByAll(n, ...range(1, max))) {
             return n
         }

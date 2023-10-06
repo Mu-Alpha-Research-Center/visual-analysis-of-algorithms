@@ -16,7 +16,7 @@ import Tests from '../../TestHelpers'
 import { range, sum, square } from '../utils'
 
 function solution(max: number): number {
-    const nums = range(1, max)
+    const nums = [...range(1, max)]
     return square(sum(nums)) - sum(nums.map(square))
 }
 

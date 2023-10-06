@@ -5,12 +5,12 @@
 // Find the largest palindrome made from the product of two 3-digit numbers.
 
 import Tests from '../../TestHelpers'
-import { reverseRange } from '../utils'
+import { rangeReverse } from '../utils'
 
 function solution(n: number): number {
     let result = 0
     const max = 10 ** n
-    const nums = reverseRange(max / 2, max)
+    const nums = [...rangeReverse(max / 2, max)]
     for (const a of nums) {
         for (const b of nums) {
             const p = a * b

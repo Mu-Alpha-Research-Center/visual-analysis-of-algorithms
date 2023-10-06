@@ -4,13 +4,12 @@
 // What is the largest prime factor of the number 600851475143?
 
 import Tests from '../../TestHelpers'
-import { isDivBy, isPrime, genRange } from '../utils'
+import { isDivBy, isPrime, range } from '../utils'
 
 function solution(n: number): number {
-    const primeFactors = [...genRange(2, n)].filter(
+    const primeFactors = [...range(2, n)].filter(
         (m) => isDivBy(n, m) && isPrime(m)
     )
-
     return primeFactors.at(-1)
 }
 

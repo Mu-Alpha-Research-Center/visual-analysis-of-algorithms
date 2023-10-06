@@ -27,3 +27,10 @@ export function isPrime(n: number): boolean {
 export function square(n: number): number {
     return n ** 2
 }
+
+export function fibonacciNumber(n: number): number {
+    if (n === 0 || n === 1) {
+        return n
+    }
+    return fibonacciNumber(n - 1) + fibonacciNumber(n - 2)
+}
