@@ -1,7 +1,9 @@
 .PHONY: phony
 
+SRC_DIR = book
+OUT_DIR = $(SRC_DIR)/output
+PDF_PATH = $(OUT_DIR)/typescript-algorithms.pdf
 MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
-
 PANDOC_FLAGS =                       \
   --pdf-engine=pdflatex              \
   --from=markdown                    \
@@ -17,15 +19,15 @@ PANDOC_FLAGS =                       \
   -V geometry:margin=0.75in
 
 clean: phony
-	rm -rf book/output/*
+	rm -rf $(OUT_DIR)/*
 
 install: phony
 	brew bundle --no-lock
 	yarn
 
 book: phony clean
-	pandoc $(PANDOC_FLAGS) -o book/output/typescript-algorithms.pdf $(MARKDOWN_FILES)
-	open book/output/typescript-algorithms.pdf
+	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
+	open $(PDF_PATH)
 
 book-watch: phony book
-	fswatch -o -r book/*.md | xargs -n1 -I{} make book
+	fswatch -o -r $(SRC_DIR)/*.md | xargs -n1 -I{} make book
