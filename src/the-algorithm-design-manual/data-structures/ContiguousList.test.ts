@@ -8,28 +8,32 @@ interface IContiguousList<T> {
 
 class ContiguousList<T> implements IContiguousList<T> {
     public items: T[]
+    public length: number
+    public resizeCoefficient: number = 2
 
     constructor(...items: T[]) {
-        this.items = FixedArray.from(...items)
+        this.items = this.resize(...items)
+        this.length = items.length
     }
 
     public insert(item: T) {
-        // Allocate new fixed size array of length + 1
-        // and copy items from old array into new array.
-        const arrayLength = this.items.length + 1
-        const array = new FixedArray<T>(arrayLength)
-        array[0] = item
-        for (let i = 0; i < this.items.length; i++) {
-            const item = this.items[i]
-            const j = i + 1
-            array[j] = item
+        if (this.length === this.items.length) {
+            this.items = this.resize(...this.items)
         }
-        this.items = array
+        this.items[this.length++] = item
+    }
+
+    private resize(...items: T[]): T[] {
+        const capacity = (items.length + 1) * this.resizeCoefficient
+        const newItems = new FixedArray<T>(capacity)
+        for (let i = 0; i < items.length; i++) {
+            newItems[i] = items[i]
+        }
+        return items
     }
 
     public search(item: T): number {
-        // Linear search for item.
-        for (let i = 0; i < this.items.length; i++) {
+        for (let i = 0; i < this.length; i++) {
             if (this.items[i] === item) {
                 return i
             }
@@ -38,33 +42,23 @@ class ContiguousList<T> implements IContiguousList<T> {
     }
 
     public delete(item: T) {
-        // Search array for item.
-        let itemIndex = this.search(item)
-        if (itemIndex === -1) {
+        let i = this.search(item)
+        if (i === -1) {
             return
         }
-        // Allocate new fixed size array of length - 1
-        // and copy items from old array into new array in a single pass
-        // by keeping track of 2 pointers into each array (i, j)
-        // and only incrementing j when i !== itemIndex.
-        const array = new FixedArray<T>(this.items.length - 1)
-        let j = 0
-        for (let i = 0; i < this.items.length; i++) {
-            if (i === itemIndex) {
-                continue
-            }
-            array[j++] = this.items[i]
+        for (i; i < this.length; i++) {
+            this.items[i] = this.items[i + 1]
         }
-        this.items = array
     }
 }
 
 test('insert', () => {
     const list = new ContiguousList()
-    list.insert(3)
-    list.insert(2)
     list.insert(1)
+    list.insert(2)
+    list.insert(3)
     expect(list.items).toEqual([1, 2, 3])
+    expect(list.length).toEqual(3)
 })
 
 test('search', () => {
