@@ -23,3 +23,7 @@ export function isDivByAll(n: number, ...divisors: number[]): boolean {
 export function isPrime(n: number): boolean {
     return !isDivByAny(n, ...range(2, Math.sqrt(n)))
 }
+
+export function square(n: number): number {
+    return n ** 2
+}
