@@ -16,6 +16,10 @@ export function isDivByAny(n: number, ...divisors: number[]): boolean {
     return divisors.some((d) => isDivBy(n, d))
 }
 
+export function isDivByAll(n: number, ...divisors: number[]): boolean {
+    return divisors.every((d) => isDivBy(n, d))
+}
+
 export function isPrime(n: number): boolean {
     return !isDivByAny(n, ...range(2, Math.sqrt(n)))
 }

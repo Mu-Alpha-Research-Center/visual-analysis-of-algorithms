@@ -1,4 +1,4 @@
-export function* genRange(beg: number, end: number) {
+export function* genRange(beg: number, end: number = Infinity) {
     for (let n = beg; n < end; n++) {
         yield n
     }
