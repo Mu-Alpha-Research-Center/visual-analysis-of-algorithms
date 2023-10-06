@@ -1,3 +1,5 @@
+import { isPrime } from './number'
+
 export function* genRange(beg: number, end: number = Infinity) {
     for (let n = beg; n < end; n++) {
         yield n
@@ -35,12 +37,20 @@ export function* genFib(max?: number) {
 }
 
 export function fib(n: number): number {
-    if (n == 0 || n == 1) {
+    if (n === 0 || n === 1) {
         return n
     }
     return fib(n - 1) + fib(n - 2)
 }
 
 export function sum(numbers: number[]): number {
-    return numbers.reduce((a, n) => a + n, 0)
+    return numbers.reduce((sum, n) => sum + n, 0)
+}
+
+export function* genPrimes() {
+    for (const m of genRange(2)) {
+        if (isPrime(m)) {
+            yield m
+        }
+    }
 }
