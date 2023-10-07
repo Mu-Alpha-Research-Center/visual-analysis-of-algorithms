@@ -16,11 +16,8 @@ class ContiguousList<T> implements IContiguousList<T> {
         this.length = items.length
     }
 
-    public insert(item: T) {
-        if (this.length === this.items.length) {
-            this.items = this.resize(...this.items)
-        }
-        this.items[this.length++] = item
+    private atCapacity(): boolean {
+        return this.length === this.items.length
     }
 
     private resize(...items: T[]): T[] {
@@ -30,6 +27,13 @@ class ContiguousList<T> implements IContiguousList<T> {
             newItems[i] = items[i]
         }
         return items
+    }
+
+    public insert(item: T) {
+        if (this.atCapacity()) {
+            this.items = this.resize(...this.items)
+        }
+        this.items[this.length++] = item
     }
 
     public search(item: T): number {
