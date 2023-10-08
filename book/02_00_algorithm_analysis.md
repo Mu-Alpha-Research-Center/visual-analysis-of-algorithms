@@ -17,7 +17,7 @@ Imagine a dynamic list backed by a fixed size array that doubles once capacity i
 | n   | n            |
 | ... | n + 1        |
 
-$\text{\# of inserts} \over n $
+$\text{\# of inserts} \over n$
 $\to$
 $n + n + 1 \over{n}$
 $\to$
