@@ -9,29 +9,27 @@ interface IContiguousList<T> {
 class ContiguousList<T> implements IContiguousList<T> {
     public items: T[]
     public length: number
-    public resizeCoefficient: number = 2
 
-    constructor(...items: T[]) {
-        this.items = this.resize(...items)
-        this.length = items.length
+    constructor() {
+        this.items = new FixedArray<T>(1)
+        this.length = 0
     }
 
-    private atCapacity(): boolean {
-        return this.length === this.items.length
-    }
-
-    private resize(...items: T[]): T[] {
-        const capacity = (items.length + 1) * this.resizeCoefficient
-        const newItems = new FixedArray<T>(capacity)
-        for (let i = 0; i < items.length; i++) {
-            newItems[i] = items[i]
+    static from<T>(...items: T[]): ContiguousList<T> {
+        const list = new ContiguousList<T>()
+        for (const item of items) {
+            list.insert(item)
         }
-        return items
+        return list
     }
 
     public insert(item: T) {
-        if (this.atCapacity()) {
-            this.items = this.resize(...this.items)
+        if (this.length === this.items.length) {
+            const items = new FixedArray<T>(this.length * 2)
+            for (let i = 0; i < this.items.length; i++) {
+                items[i] = this.items[i]
+            }
+            this.items = items
         }
         this.items[this.length++] = item
     }
@@ -66,13 +64,12 @@ test('insert', () => {
 })
 
 test('search', () => {
-    const list = new ContiguousList(1, 2, 3)
-    const itemIndex = list.search(3)
-    expect(itemIndex).toEqual(2)
+    const list = ContiguousList.from(1, 2, 3)
+    expect(list.search(3)).toEqual(2)
 })
 
 test('delete', () => {
-    const list = new ContiguousList(1, 2, 3, 4, 5)
+    const list = ContiguousList.from(1, 2, 3, 4, 5)
     list.delete(2)
     expect(list.items).toEqual([1, 3, 4, 5])
     list.delete(1)
