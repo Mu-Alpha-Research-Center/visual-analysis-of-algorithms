@@ -7,7 +7,7 @@ interface IContiguousList<T> {
 }
 
 class ContiguousList<T> implements IContiguousList<T> {
-    public items: T[]
+    public items: FixedArray<T>
     public length: number
 
     constructor() {
