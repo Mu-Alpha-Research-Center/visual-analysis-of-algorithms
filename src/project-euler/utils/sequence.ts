@@ -29,3 +29,7 @@ export function* primeNumbers() {
 export function sum(numbers: number[]): number {
     return numbers.reduce((sum, n) => sum + n, 0)
 }
+
+export function product(numbers: number[]): number {
+    return numbers.reduce((product, n) => product * n, 1)
+}
