@@ -3,7 +3,7 @@
 SRC_DIR = book
 OUT_DIR = $(SRC_DIR)/output
 PDF_PATH = $(OUT_DIR)/typescript-algorithms.pdf
-MARKDOWN_FILES = $(shell find book -name '*.md' | sort)
+MARKDOWN_FILES = $(shell find book/src -name '*.md' | sort)
 PANDOC_FLAGS = \
 	--pdf-engine=pdflatex \
 	--from=markdown \

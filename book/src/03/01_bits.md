@@ -1,7 +1,5 @@
 ## Bits
 
-### Overview
-
 ### Bit Parity
 
 ![](images/bit-parity.png)
