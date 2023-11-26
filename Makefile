@@ -21,10 +21,10 @@ PANDOC_FLAGS = \
 clean: phony
 	rm -rf $(OUT_DIR)/*
 
-install.brew: phony
+brew.install: phony
 	brew bundle --no-lock
 
-install.python: phony python.env
+python.install: phony python.env
 	pyenv install -s
 	pip install -U pip black notebook pipreqsnb
 

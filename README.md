@@ -10,8 +10,8 @@ In-progress book about algorithms and data structures ([PDF](book/output/book.pd
 
 | Name                    | Description                   |
 | :---------------------- | :---------------------------- |
-| `make install.brew`     | Install Homebrew dependencies |
-| `make install.python`   | Install Python dependencies   |
+| `make brew.install`     | Install Homebrew dependencies |
+| `make python.install`   | Install Python dependencies   |
 | `make python.env`       | Activate Python environment   |
 | `make python.reqs`      | Update Python requirements    |
 | `make jupyter.notebook` | Start Jupyter Notebook        |
