@@ -1,8 +1,7 @@
 tap "homebrew/cask"
 
-brew "fswatch"
-brew "nvm"
 brew "pandoc"
+brew "pyenv"
 
 cask "basictex"
 

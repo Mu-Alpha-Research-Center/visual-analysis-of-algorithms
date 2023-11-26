@@ -2,7 +2,7 @@
 
 SRC_DIR = book
 OUT_DIR = $(SRC_DIR)/output
-PDF_PATH = $(OUT_DIR)/typescript-algorithms.pdf
+PDF_PATH = $(OUT_DIR)/book.pdf
 MARKDOWN_FILES = $(shell find book/src -name '*.md' | sort)
 PANDOC_FLAGS = \
 	--pdf-engine=pdflatex \
@@ -11,7 +11,7 @@ PANDOC_FLAGS = \
 	--file-scope \
 	--table-of-contents \
 	--number-sections \
-	--indented-code-classes=typescript \
+	--indented-code-classes=python \
 	--highlight-style=monochrome \
 	-V mainfont="Palatino" \
 	-V documentclass=report \
@@ -21,13 +21,23 @@ PANDOC_FLAGS = \
 clean: phony
 	rm -rf $(OUT_DIR)/*
 
-install: phony
+install.brew: phony
 	brew bundle --no-lock
-	yarn
 
-book: phony clean
+install.python: phony python.env
+	pyenv install -s
+	pip install -U pip black notebook pipreqsnb
+
+python.reqs: phony python.env
+	pipreqsnb --force
+
+python.env: phony
+	python -m venv env
+	. env/bin/activate
+
+jupyter.notebook: phony python.env
+	jupyter notebook
+
+book.compile: phony clean
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
 	open $(PDF_PATH)
-
-book-watch: phony book
-	fswatch -o -r $(SRC_DIR)/*.md | xargs -n1 -I{} make book

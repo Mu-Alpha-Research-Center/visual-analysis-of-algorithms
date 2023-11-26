@@ -1,23 +1,18 @@
-<p align="center">
-  <img src="./book/images/typescript-algorithms-mock.png" alt="typescript algorithms logo" width="40%"/>
-</p>
+# Algorist
 
-## About
+In-progress book about algorithms and data structures ([PDF](book/output/book.pdf)).
 
-In-progress book about algorithms and data structures in TypeScript ([PDF](book/output/typescript-algorithms.pdf)).
+## Requirements
 
-## Contributing
+- [Homebrew](https://brew.sh)
 
-### Requirements
+## Commands
 
--   [Homebrew](https://brew.sh)
-
-### Commands
-
-| Name                    | Description                                                |
-| :---------------------- | :--------------------------------------------------------- |
-| `make install`          | Install Homebrew and Node.js dependencies                  |
-| `make book`             | Compile book to PDF                                        |
-| `make book-watch`       | Automatically compile book to PDF when source files change |
-| `yarn test`             | Run problem tests                                          |
-| `yarn generate:problem` | Generate new LeetCode or Project Euler problem             |
+| Name                    | Description                   |
+| :---------------------- | :---------------------------- |
+| `make install.brew`     | Install Homebrew dependencies |
+| `make install.python`   | Install Python dependencies   |
+| `make python.env`       | Activate Python environment   |
+| `make python.reqs`      | Update Python requirements    |
+| `make jupyter.notebook` | Start Jupyter Notebook        |
+| `make book.compile`     | Compile book to PDF           |
