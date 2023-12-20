@@ -1,6 +1,6 @@
-# Algorist
+# Algorithm Notebook
 
-In-progress book about algorithms and data structures ([PDF](book/output/book.pdf)).
+Algorithms and data structures notes ([PDF](book/output/book.pdf)).
 
 ## Requirements
 
