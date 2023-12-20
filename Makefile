@@ -31,23 +31,22 @@ brew.install: phony # Install Homebrew dependencies
 
 python.install: phony python.env # Install Python dependencies
 	pyenv install -s
-	pip install -U pip black notebook pipreqsnb pytest watchdog matplotlib
+	pip install -U pip
+	pip install -U pipreqs black pytest watchdog
+	pip install -r requirements.txt
 
 python.env: phony # Activate Python virtual environment
 	python -m venv env
 	. env/bin/activate
 
 python.reqs: phony python.env # Update Python package requirements
-	pipreqsnb --force
+	pipreqs --force
 
 python.fmt: phony python.env # Format Python code
 	black .
 
 python.plot: phony python.env # Generate plots
 	python src/problems/test_two_sum.py
-
-jupyter.notebook: phony python.env # Start Jupyter Notebook server
-	jupyter notebook
 
 book.compile: phony clean # Compile Markdown book to PDF
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
