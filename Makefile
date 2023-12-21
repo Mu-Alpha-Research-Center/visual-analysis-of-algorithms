@@ -52,8 +52,9 @@ book.compile: phony clean # Compile Markdown book to PDF
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
 	open $(PDF_PATH)
 
+PYTEST_FLAGS=-s --disable-warnings
 test: phony python.env # Test problems 
-	pytest -s
+	pytest $(PYTEST_FLAGS)
 
 test.watch: phony python.env test # Watch and test problems
-	watchmedo shell-command --patterns="*.py" --recursive --command='pytest -s' .
+	watchmedo shell-command --patterns="*.py" --recursive --command='pytest $(PYTEST_FLAGS)' .

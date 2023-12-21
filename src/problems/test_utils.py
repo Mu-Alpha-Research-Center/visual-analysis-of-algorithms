@@ -1,4 +1,5 @@
 import inspect
+import sys
 
 
 class Runtime:
@@ -12,6 +13,22 @@ class Runtime:
         self.operations = 0
 
 
-def get_methods(instance):
-    methods = inspect.getmembers(instance, predicate=inspect.ismethod)
-    return [(name, func) for name, func in methods if not name.startswith("_")]
+class Space:
+    def __init__(self):
+        self.reset()
+
+    def watch(self, object):
+        self.object = object
+
+    def size(self):
+        return sys.getsizeof(self.object)
+
+    def reset(self):
+        self.object = None
+
+
+def get_methods(object):
+    members = inspect.getmembers(object, predicate=inspect.ismethod)
+    methods = [(name, func) for name, func in members if not name.startswith("_")]
+
+    return methods
