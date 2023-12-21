@@ -2,29 +2,25 @@ import inspect
 import sys
 
 
-class Runtime:
+class Complexity:
     def __init__(self):
         self.reset()
 
-    def step(self):
-        self.operations += 1
+    def incr_step(self):
+        self._steps += 1
+
+    def get_steps(self):
+        return self._steps
+
+    def set_space(self, object):
+        self._space = object
+
+    def getsizeof_space(self):
+        return sys.getsizeof(self._space)
 
     def reset(self):
-        self.operations = 0
-
-
-class Space:
-    def __init__(self):
-        self.reset()
-
-    def watch(self, object):
-        self.object = object
-
-    def size(self):
-        return sys.getsizeof(self.object)
-
-    def reset(self):
-        self.object = None
+        self._steps = 0
+        self._space = None
 
 
 def get_methods(object):

@@ -8,25 +8,23 @@ import test_utils
 
 class Solution:
     def __init__(self):
-        self.name = "Two Sum"
-        self.runtime = test_utils.Runtime()
-        self.space = test_utils.Space()
+        self.complexity = test_utils.Complexity()
 
-    def twoSumBruteForce(self, nums: List[int], target: int) -> List[int]:
+    def brute_force(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
-            self.runtime.step()
+            self.complexity.incr_step()
             n = nums[i]
             for j in range(i + 1, len(nums)):
-                self.runtime.step()
+                self.complexity.incr_step()
                 m = nums[j]
                 if n + m == target:
                     return [i, j]
 
-    def twoSumOnePass(self, nums: List[int], target: int) -> List[int]:
+    def one_pass(self, nums: List[int], target: int) -> List[int]:
         m = {}
-        self.space.watch(m)
+        self.complexity.set_space(m)
         for i, n in enumerate(nums):
-            self.runtime.step()
+            self.complexity.incr_step()
             complement = target - n
             if complement in m:
                 return [m[complement], i]
@@ -62,29 +60,27 @@ def plot_complexity():
             if name not in data["space"]:
                 data["space"][name] = {"x": [], "y": []}
             data["runtime"][name]["x"].append(n)
-            data["runtime"][name]["y"].append(s.runtime.operations)
-            s.runtime.reset()
+            data["runtime"][name]["y"].append(s.complexity.get_steps())
             data["space"][name]["x"].append(n)
-            data["space"][name]["y"].append(s.space.size())
-            s.space.reset()
-
-    path = Path(__file__)
+            data["space"][name]["y"].append(s.complexity.getsizeof_space())
+            s.complexity.reset()
 
     fig, [runtime, space] = plt.subplots(2)
-    fig.suptitle(s.name)
+    fig.suptitle("Two Sum")
 
     for name, values in data["runtime"].items():
         runtime.plot(values["x"], values["y"], label=name)
-    runtime.set(title="Runtime", xlabel="Input Size", ylabel="Operations")
+    runtime.set(title="Runtime", xlabel="Input Size", ylabel="Steps")
+    runtime.legend()
 
     for name, values in data["space"].items():
         space.plot(values["x"], values["y"], label=name)
     space.set(title="Space", xlabel="Input Size", ylabel="Bytes")
-
-    handles, labels = runtime.get_legend_handles_labels()
-    fig.legend(handles, labels, loc="outside upper right")
+    space.legend()
 
     fig.tight_layout()
+
+    path = Path(__file__)
     plt.savefig(f"src/problems/{path.stem}", dpi=200)
 
 
