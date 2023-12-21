@@ -32,7 +32,7 @@ brew.install: phony # Install Homebrew dependencies
 python.install: phony python.env # Install Python dependencies
 	pyenv install -s
 	pip install -U pip
-	pip install -U pipreqs black pytest watchdog
+	pip install -U pipreqs black pytest watchdog autoflake
 	pip install -r requirements.txt
 
 python.env: phony # Activate Python virtual environment
@@ -44,9 +44,7 @@ python.reqs: phony python.env # Update Python package requirements
 
 python.fmt: phony python.env # Format Python code
 	black .
-
-python.plot: phony python.env # Generate plots
-	python src/problems/test_two_sum.py
+	autoflake -i --remove-all-unused-imports src/**/*.py
 
 book.compile: phony clean # Compile Markdown book to PDF
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
