@@ -32,7 +32,7 @@ brew.install: phony # Install Homebrew dependencies
 python.install: phony python.env # Install Python dependencies
 	pyenv install -s
 	pip install -U pip
-	pip install -U pipreqs black pytest watchdog autoflake
+	pip install -U pipreqs black pytest watchdog autoflake pre-commit
 	pip install -r requirements.txt
 
 python.env: phony # Activate Python virtual environment
@@ -51,7 +51,7 @@ book.compile: phony clean # Compile Markdown book to PDF
 	open $(PDF_PATH)
 
 PYTEST_FLAGS=-s --disable-warnings
-test: phony python.env # Test problems 
+test: phony python.env # Test problems
 	pytest $(PYTEST_FLAGS)
 
 test.watch: phony python.env test # Watch and test problems
