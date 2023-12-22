@@ -1,7 +1,8 @@
 import inspect
 import sys
-import matplotlib.pyplot as plt
 from pathlib import Path
+
+import matplotlib.pyplot as plt
 
 plt.rcParams["font.family"] = "Menlo"
 

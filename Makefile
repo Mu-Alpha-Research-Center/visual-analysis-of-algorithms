@@ -32,7 +32,7 @@ brew.install: phony # Install Homebrew dependencies
 python.install: phony python.env # Install Python dependencies
 	pyenv install -s
 	pip install -U pip
-	pip install -U pipreqs black pytest watchdog autoflake pre-commit
+	pip install -U pipreqs black pytest watchdog autoflake pre-commit isort
 	pip install -r requirements.txt
 
 python.env: phony # Activate Python virtual environment
@@ -43,8 +43,9 @@ python.reqs: phony python.env # Update Python package requirements
 	pipreqs --force
 
 python.fmt: phony python.env # Format Python code
-	black .
+	black src
 	autoflake -i --remove-all-unused-imports src/**/*.py
+	isort src
 
 book.compile: phony clean # Compile Markdown book to PDF
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
