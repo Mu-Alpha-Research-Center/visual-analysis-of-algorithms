@@ -2,6 +2,8 @@
 
 Algorithms and data structures notes ([PDF](book/output/book.pdf)).
 
-## Requirements
+## Development
 
-- [Homebrew](https://brew.sh)
+- Install [Homebrew](https://brew.sh)
+- `make install`
+- `make test`

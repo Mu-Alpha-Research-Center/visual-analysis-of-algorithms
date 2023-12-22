@@ -17,6 +17,7 @@ PANDOC_FLAGS = \
 	-V documentclass=report \
 	-V papersize=A5 \
 	-V geometry:margin=0.75in
+PYTEST_FLAGS=-s --disable-warnings
 
 default: help
 
@@ -25,6 +26,8 @@ help: phony # Show help for Makefile commands
 
 clean: phony # Clean output directory
 	rm -rf $(OUT_DIR)/*
+
+install: phony brew.install python.install # Install dependencies
 
 brew.install: phony # Install Homebrew dependencies
 	brew bundle --no-lock
@@ -51,7 +54,6 @@ book.compile: phony clean # Compile Markdown book to PDF
 	pandoc $(PANDOC_FLAGS) -o $(PDF_PATH) $(MARKDOWN_FILES)
 	open $(PDF_PATH)
 
-PYTEST_FLAGS=-s --disable-warnings
 test: phony python.env # Test problems
 	pytest $(PYTEST_FLAGS)
 
