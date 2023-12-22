@@ -56,5 +56,5 @@ book.compile: phony clean # Compile Markdown book to PDF
 test: phony python.env # Test problems
 	@ pytest $(PYTEST_FLAGS)
 
-test.watch: phony python.env test # Watch and test problems
+test.watch: phony python.env # Watch and test problems
 	@ watchmedo shell-command --patterns="*.py" --recursive --command='pytest $(PYTEST_FLAGS)' .
