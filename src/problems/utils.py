@@ -27,7 +27,8 @@ class Complexity:
         self.solution = solution
         self.solution_path = Path(inspect.getfile(solution.__class__))
         self.history = []
-        self.reset()
+        self._steps = 0
+        self._objects = []
 
     def step(self):
         self._steps += 1
@@ -35,15 +36,18 @@ class Complexity:
     def get_steps(self):
         return self._steps
 
-    def space(self, object):
-        self._memory = object
+    def space(self, *objects):
+        self._objects = objects
 
     def get_space(self):
-        return sys.getsizeof(self._memory)
+        total = 0
+        for o in self._objects:
+            total += sys.getsizeof(o)
+        return total
 
     def reset(self):
         self._steps = 0
-        self._memory = None
+        self._objects = []
 
     def record(self, name, n):
         self.history += [

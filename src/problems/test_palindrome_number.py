@@ -4,35 +4,17 @@ import utils
 
 
 class Solution(utils.Solution):
-    def two_pass(self, x: int) -> bool:
-        digits = []
-        self.complexity.space(digits)
+    def one_pass(self, x: int) -> bool:
+        r = 0
+        n = x
+        self.complexity.space(r, n)
 
-        if x < 0:
+        while n > 0:
             self.complexity.step()
-            return False
+            r = r * 10 + (n % 10)
+            n //= 10
 
-        if x < 10:
-            self.complexity.step()
-            return True
-
-        while x > 0:
-            self.complexity.step()
-            digits.append(x % 10)
-            x = x // 10
-
-        i = 0
-        j = len(digits) - 1
-        while i != j:
-            self.complexity.step()
-            n = digits[i]
-            m = digits[j]
-            if n != m:
-                return False
-            i += 1
-            j -= 1
-
-        return True
+        return x == r
 
 
 def test_solutions():
