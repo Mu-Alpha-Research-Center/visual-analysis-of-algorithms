@@ -7,7 +7,7 @@ class Solution(utils.Solution):
     def one_pass(self, x: int) -> bool:
         r = 0
         n = x
-        self.complexity.space(r, n)
+        self.complexity.store(r, n)
 
         while n > 0:
             self.complexity.step()
@@ -40,6 +40,6 @@ def test_complexity():
     for name, func in s.methods():
         for n in tests:
             func(n)
-            s.complexity.record(name, sys.getsizeof(n))
+            s.complexity.mark(name, sys.getsizeof(n))
 
     s.complexity.plot()

@@ -5,24 +5,25 @@ import utils
 
 class Solution(utils.Solution):
     def brute_force(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
+        for i, n in enumerate(nums):
             self.complexity.step()
-            n = nums[i]
             for j in range(i + 1, len(nums)):
                 self.complexity.step()
                 m = nums[j]
                 if n + m == target:
                     return [i, j]
+        return []
 
     def one_pass(self, nums: List[int], target: int) -> List[int]:
         m = {}
-        self.complexity.space(m)
+        self.complexity.store(m)
         for i, n in enumerate(nums):
             self.complexity.step()
             complement = target - n
             if complement in m:
                 return [m[complement], i]
             m[n] = i
+        return []
 
 
 def test_solutions():
@@ -45,6 +46,6 @@ def test_complexity():
     for name, func in s.methods():
         for nums in tests:
             func(nums, -1)
-            s.complexity.record(name, len(nums))
+            s.complexity.mark(name, len(nums))
 
     s.complexity.plot()

@@ -4,7 +4,7 @@ import utils
 class Solution(utils.Solution):
     def copy(self, items):
         result = []
-        self.complexity.space(result)
+        self.complexity.store(result)
         for i in range(len(items) - 1, -1, -1):
             self.complexity.step()
             result.append(items[i])
@@ -13,7 +13,7 @@ class Solution(utils.Solution):
     def in_place(self, items):
         i = 0
         j = len(items) - 1
-        self.complexity.space(i, j)
+        self.complexity.store(i, j)
         while i < j:
             self.complexity.step()
             items[i], items[j] = items[j], items[i]
@@ -40,6 +40,6 @@ def test_complexity():
     for name, func in s.methods():
         for nums in tests:
             func(nums)
-            s.complexity.record(name, len(nums))
+            s.complexity.mark(name, len(nums))
 
     s.complexity.plot()

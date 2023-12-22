@@ -9,87 +9,76 @@ plt.rcParams["font.family"] = "Menlo"
 
 class Solution:
     def __init__(self):
-        self.complexity = Complexity(self)
+        self.complexity = Complexity(path=Path(inspect.getfile(self.__class__)))
 
     def methods(self):
         members = inspect.getmembers(self, predicate=inspect.ismethod)
-        methods = [
+
+        return [
             (name, func)
             for name, func in members
             if name != "methods" and not name.startswith("_")
         ]
 
-        return methods
-
 
 class Complexity:
-    def __init__(self, solution):
-        self.solution = solution
-        self.solution_path = Path(inspect.getfile(solution.__class__))
-        self.history = []
+    _category_time = "time"
+    _category_space = "space"
+
+    def __init__(self, path: Path):
+        self._path = path
+        self._history = []
         self._steps = 0
         self._objects = []
 
     def step(self):
         self._steps += 1
 
-    def get_steps(self):
-        return self._steps
+    def store(self, *objects):
+        self._objects += objects
 
-    def space(self, *objects):
-        self._objects = objects
-
-    def get_space(self):
-        total = 0
-        for o in self._objects:
-            total += sys.getsizeof(o)
-        return total
-
-    def reset(self):
+    def mark(self, name, input_size):
+        self._history += [
+            (self._category_time, name, input_size, self._steps),
+            (
+                self._category_space,
+                name,
+                input_size,
+                sum(sys.getsizeof(o) for o in self._objects),
+            ),
+        ]
         self._steps = 0
         self._objects = []
 
-    def record(self, name, n):
-        self.history += [
-            ("time", name, n, self.get_steps()),
-            ("space", name, n, self.get_space()),
-        ]
-        self.reset()
+    def plot(self):
+        # Aggregate history data
+        data = {
+            self._category_time: {},
+            self._category_space: {},
+        }
 
-    def aggregate_history(self):
-        data = {}
-
-        for category, name, x, y in self.history:
-            if category not in data:
-                data[category] = {}
+        for category, name, x, y in self._history:
             if name not in data[category]:
                 data[category][name] = {"x": [], "y": []}
             data[category][name]["x"].append(x)
             data[category][name]["y"].append(y)
 
-        return data
+        # Plot history data
+        fig, axs = plt.subplots(2)
+        subplots = [
+            (self._category_time, axs[0], "input size", "steps"),
+            (self._category_space, axs[1], "input size", "bytes"),
+        ]
 
-    def plot(self):
-        data = self.aggregate_history()
-        xlabel = "Input Size"
-        linewidth = 0.9
-        margins_x = 0
+        fig.suptitle(self._path.name)
 
-        fig, [time, space] = plt.subplots(2)
-        fig.suptitle(self.solution_path.name)
-
-        time.margins(x=margins_x)
-        space.margins(x=margins_x)
-
-        for name, values in data["time"].items():
-            time.plot(values["x"], values["y"], label=name, linewidth=linewidth)
-        time.set(title="Time", xlabel=xlabel, ylabel="Steps")
-        time.legend()
-
-        for name, values in data["space"].items():
-            space.plot(values["x"], values["y"], label=name, linewidth=linewidth)
-        space.set(title="Space", xlabel=xlabel, ylabel="Bytes")
-        space.legend()
+        for category, ax, xlabel, ylabel in subplots:
+            for name, values in data[category].items():
+                ax.plot(values["x"], values["y"], label=name, linewidth=0.9)
+            ax.set(title=category, xlabel=xlabel, ylabel=ylabel)
+            ax.margins(x=0)
+            ax.legend()
 
         fig.tight_layout()
-        plt.savefig(f"src/problems/{self.solution_path.stem}", dpi=300)
+
+        plt.savefig(f"src/problems/{self._path.stem}", dpi=300)
