@@ -3,7 +3,7 @@ from typing import List
 import utils
 
 
-class Solution(utils.Solution):
+class Solution(utils.BaseSolution):
     def brute_force(self, nums: List[int], target: int) -> List[int]:
         for i, n in enumerate(nums):
             self.complexity.step()

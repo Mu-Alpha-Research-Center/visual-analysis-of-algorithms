@@ -3,7 +3,7 @@ import sys
 import utils
 
 
-class Solution(utils.Solution):
+class Solution(utils.BaseSolution):
     def one_pass(self, x: int) -> bool:
         r = 0
         n = x

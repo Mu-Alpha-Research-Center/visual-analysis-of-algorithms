@@ -1,24 +1,9 @@
-import inspect
 import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 
 plt.rcParams["font.family"] = "Menlo"
-
-
-class Solution:
-    def __init__(self):
-        self.complexity = Complexity(path=Path(inspect.getfile(self.__class__)))
-
-    def methods(self):
-        members = inspect.getmembers(self, predicate=inspect.ismethod)
-
-        return [
-            (name, func)
-            for name, func in members
-            if name != "methods" and not name.startswith("_")
-        ]
 
 
 class Complexity:

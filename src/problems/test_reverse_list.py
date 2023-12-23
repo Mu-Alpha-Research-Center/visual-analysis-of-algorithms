@@ -1,7 +1,7 @@
 import utils
 
 
-class Solution(utils.Solution):
+class Solution(utils.BaseSolution):
     def copy(self, items):
         result = []
         self.complexity.store(result)
