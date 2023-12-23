@@ -8,12 +8,10 @@ class Solution(utils.BaseSolution):
         r = 0
         n = x
         self.complexity.store(r, n)
-
         while n > 0:
             self.complexity.step()
             r = r * 10 + (n % 10)
             n //= 10
-
         return x == r
 
 

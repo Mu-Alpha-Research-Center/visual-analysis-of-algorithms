@@ -1,8 +1,10 @@
+from typing import List
+
 import utils
 
 
 class Solution(utils.BaseSolution):
-    def copy(self, items):
+    def copy(self, items: List[int]) -> List[int]:
         result = []
         self.complexity.store(result)
         for i in range(len(items) - 1, -1, -1):
@@ -10,7 +12,7 @@ class Solution(utils.BaseSolution):
             result.append(items[i])
         return result
 
-    def in_place(self, items):
+    def in_place(self, items: List[int]) -> List[int]:
         i = 0
         j = len(items) - 1
         self.complexity.store(i, j)

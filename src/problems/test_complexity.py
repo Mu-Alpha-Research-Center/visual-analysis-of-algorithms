@@ -7,22 +7,22 @@ def frange(n):
 
 
 class Solution(utils.BaseSolution):
-    def constant(self, n):
+    def constant(self, n: int):
         pass
 
-    def logarithmic(self, n):
+    def logarithmic(self, n: int):
         for _ in frange(np.log(n)):
             self.complexity.step()
 
-    def linear(self, n):
+    def linear(self, n: int):
         for _ in frange(n):
             self.complexity.step()
 
-    def quadratic(self, n):
+    def quadratic(self, n: int):
         for _ in frange(n**2):
             self.complexity.step()
 
-    def exponential(self, n):
+    def exponential(self, n: int):
         for _ in frange(2**n):
             self.complexity.step()
 
