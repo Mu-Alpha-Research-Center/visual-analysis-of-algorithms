@@ -35,7 +35,7 @@ class Complexity:
         self._steps = 0
         self._objects = []
 
-    def plot(self):
+    def plot(self, only_time=False):
         # Aggregate history data
         data = {
             self._category_time: {},
@@ -49,11 +49,17 @@ class Complexity:
             data[category][name]["y"].append(y)
 
         # Plot history data
-        fig, axs = plt.subplots(2)
-        subplots = [
-            (self._category_time, axs[0], "input size", "steps"),
-            (self._category_space, axs[1], "input size", "bytes"),
-        ]
+        if only_time:
+            fig, ax_time = plt.subplots(1)
+            subplots = [
+                (self._category_time, ax_time, "input size", "steps"),
+            ]
+        else:
+            fig, axs = plt.subplots(2)
+            subplots = [
+                (self._category_time, axs[0], "input size", "steps"),
+                (self._category_space, axs[1], "input size", "bytes"),
+            ]
 
         fig.suptitle(self._path.name)
 
