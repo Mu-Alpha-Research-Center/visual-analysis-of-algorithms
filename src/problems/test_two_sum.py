@@ -6,23 +6,21 @@ import utils
 class Solution(utils.BaseSolution):
     def brute_force(self, nums: List[int], target: int) -> List[int]:
         for i, n in enumerate(nums):
-            self.complexity.step()
             for j in range(i + 1, len(nums)):
                 self.complexity.step()
-                m = nums[j]
-                if n + m == target:
+                if nums[j] == target - n:
                     return [i, j]
         return []
 
     def one_pass(self, nums: List[int], target: int) -> List[int]:
-        m = {}
-        self.complexity.store(m)
+        hashmap = {}
+        self.complexity.store(hashmap)
         for i, n in enumerate(nums):
             self.complexity.step()
             complement = target - n
-            if complement in m:
-                return [m[complement], i]
-            m[n] = i
+            if complement in hashmap:
+                return [hashmap[complement], i]
+            hashmap[n] = i
         return []
 
 
