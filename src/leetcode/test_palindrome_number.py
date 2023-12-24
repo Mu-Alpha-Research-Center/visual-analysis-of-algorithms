@@ -16,13 +16,13 @@ class Solution(utils.BaseSolution):
 
 
 def test_solutions():
+    s = Solution()
     tests = [
         (0, True),
         (121, True),
         (-121, False),
         (10, False),
     ]
-    s = Solution()
 
     for n, expected in tests:
         for name, func in s.methods():
@@ -30,10 +30,10 @@ def test_solutions():
 
 
 def test_complexity():
+    s = Solution()
     tests = [-2, 0, 2]
     while len(tests) <= 1000:
         tests.append(tests[-1] << 1)
-    s = Solution()
 
     for n in tests:
         for name, func in s.methods():

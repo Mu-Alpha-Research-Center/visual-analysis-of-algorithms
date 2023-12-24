@@ -25,11 +25,11 @@ class Solution(utils.BaseSolution):
 
 
 def test_complexity():
-    tests = range(1, 10)
     s = Solution()
+    tests = range(1, 10)
 
-    for nums in tests:
-        for name, func in s.methods():
+    for name, func in s.methods():
+        for nums in tests:
             func(nums)
             s.complexity.mark(name, nums)
 

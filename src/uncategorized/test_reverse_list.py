@@ -25,22 +25,22 @@ class Solution(utils.BaseSolution):
 
 
 def test_solutions():
+    s = Solution()
     tests = [
         ([1, 2, 3], [3, 2, 1]),
     ]
-    s = Solution()
 
-    for nums, expected in tests:
-        for name, func in s.methods():
+    for name, func in s.methods():
+        for nums, expected in tests:
             assert func(nums) == expected, f"{name}"
 
 
 def test_complexity():
-    tests = [list(range(n)) for n in range(100)]
     s = Solution()
+    tests = [list(range(n)) for n in range(100)]
 
-    for nums in tests:
-        for name, func in s.methods():
+    for name, func in s.methods():
+        for nums in tests:
             func(nums)
             s.complexity.mark(name, len(nums))
 
