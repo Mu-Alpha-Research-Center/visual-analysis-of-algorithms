@@ -1,9 +1,6 @@
-import numpy as np
-import utils
+import math
 
-
-def frange(n):
-    return np.arange(0, n, 0.1)
+from .. import utils
 
 
 class Solution(utils.BaseSolution):
@@ -11,19 +8,19 @@ class Solution(utils.BaseSolution):
         pass
 
     def logarithmic(self, n: int):
-        for _ in frange(np.log(n)):
+        for _ in utils.strange(math.log(n)):
             self.complexity.step()
 
     def linear(self, n: int):
-        for _ in frange(n):
+        for _ in utils.strange(n):
             self.complexity.step()
 
     def quadratic(self, n: int):
-        for _ in frange(n**2):
+        for _ in utils.strange(n**2):
             self.complexity.step()
 
     def exponential(self, n: int):
-        for _ in frange(2**n):
+        for _ in utils.strange(2**n):
             self.complexity.step()
 
 
@@ -31,9 +28,9 @@ def test_complexity():
     tests = range(1, 10)
     s = Solution()
 
-    for n, func in s.methods():
-        for nums in tests:
+    for nums in tests:
+        for name, func in s.methods():
             func(nums)
-            s.complexity.mark(n, nums)
+            s.complexity.mark(name, nums)
 
-    s.complexity.plot(only_time=True)
+    s.complexity.plot()

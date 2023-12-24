@@ -1,6 +1,6 @@
 from typing import List
 
-import utils
+from .. import utils
 
 
 class Solution(utils.BaseSolution):
@@ -32,8 +32,8 @@ def test_solutions():
     ]
     s = Solution()
 
-    for name, func in s.methods():
-        for nums, target, expected in tests:
+    for nums, target, expected in tests:
+        for name, func in s.methods():
             assert func(nums, target) == expected, f"{name}"
 
 
@@ -41,8 +41,8 @@ def test_complexity():
     tests = [range(n) for n in range(100)]
     s = Solution()
 
-    for name, func in s.methods():
-        for nums in tests:
+    for nums in tests:
+        for name, func in s.methods():
             func(nums, -1)
             s.complexity.mark(name, len(nums))
 

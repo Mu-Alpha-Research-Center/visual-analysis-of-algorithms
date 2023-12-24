@@ -1,6 +1,6 @@
 import sys
 
-import utils
+from .. import utils
 
 
 class Solution(utils.BaseSolution):
@@ -24,9 +24,9 @@ def test_solutions():
     ]
     s = Solution()
 
-    for name, func in s.methods():
-        for x, expected in tests:
-            assert func(x) == expected, f"{name}"
+    for n, expected in tests:
+        for name, func in s.methods():
+            assert func(n) == expected, f"{name}"
 
 
 def test_complexity():
@@ -35,8 +35,8 @@ def test_complexity():
         tests.append(tests[-1] << 1)
     s = Solution()
 
-    for name, func in s.methods():
-        for n in tests:
+    for n in tests:
+        for name, func in s.methods():
             func(n)
             s.complexity.mark(name, sys.getsizeof(n))
 

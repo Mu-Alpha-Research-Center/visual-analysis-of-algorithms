@@ -23,19 +23,22 @@ class Complexity:
         self._objects += objects
 
     def mark(self, name, input_size):
-        self._history += [
+        self._history.append(
             (self._category_time, name, input_size, self._steps),
-            (
-                self._category_space,
-                name,
-                input_size,
-                sum(sys.getsizeof(o) for o in self._objects),
-            ),
-        ]
+        )
+        if len(self._objects) > 0:
+            self._history.append(
+                (
+                    self._category_space,
+                    name,
+                    input_size,
+                    sum(sys.getsizeof(o) for o in self._objects),
+                ),
+            )
         self._steps = 0
         self._objects = []
 
-    def plot(self, only_time=False):
+    def plot(self):
         # Aggregate history data
         data = {
             self._category_time: {},
@@ -49,7 +52,7 @@ class Complexity:
             data[category][name]["y"].append(y)
 
         # Plot history data
-        if only_time:
+        if len(data[self._category_space]) == 0:
             fig, ax_time = plt.subplots(1)
             subplots = [
                 (self._category_time, ax_time, "input size", "steps"),
@@ -61,7 +64,8 @@ class Complexity:
                 (self._category_space, axs[1], "input size", "bytes"),
             ]
 
-        fig.suptitle(self._path.name)
+        if self._path is not None:
+            fig.suptitle(self._path.name)
 
         for category, ax, xlabel, ylabel in subplots:
             for name, values in data[category].items():
@@ -72,4 +76,7 @@ class Complexity:
 
         fig.tight_layout()
 
-        plt.savefig(f"src/problems/{self._path.stem}", dpi=300)
+        if self._path is None:
+            plt.show()
+        else:
+            plt.savefig(self._path.with_suffix(".png"), dpi=300)
