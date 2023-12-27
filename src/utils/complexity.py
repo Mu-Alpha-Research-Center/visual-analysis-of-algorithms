@@ -2,6 +2,8 @@ import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import make_interp_spline
 
 plt.rcParams["font.family"] = "Menlo"
 
@@ -69,7 +71,22 @@ class Complexity:
 
         for category, ax, xlabel, ylabel in subplots:
             for name, values in data[category].items():
-                ax.plot(values["x"], values["y"], label=name, linewidth=0.9)
+                line_props = {
+                    "label": name,
+                    "linewidth": 0.9,
+                }
+                x = np.array(values["x"])
+                y = np.array(values["y"])
+                try:
+                    xsmooth = np.linspace(x.min(), x.max())
+                    ysmooth = make_interp_spline(x, y)(xsmooth)
+                    ax.plot(
+                        xsmooth,
+                        ysmooth,
+                        **line_props,
+                    )
+                except ValueError:
+                    ax.plot(x, y, **line_props)
             ax.set(title=category, xlabel=xlabel, ylabel=ylabel)
             ax.margins(x=0)
             ax.legend()
