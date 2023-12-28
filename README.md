@@ -5,7 +5,7 @@
     <tr>
       <td>
         <a href="src/uncategorized/test_complexity.py">
-          <img src="images/test_complexity.py.png" />
+          <img src="docs/images/test_complexity.py.png" />
         </a>
       </td>
       <td>
