@@ -1,3 +1,4 @@
+import numbers
 import sys
 from pathlib import Path
 
@@ -25,6 +26,9 @@ class Complexity:
         self._objects += objects
 
     def mark(self, name, input_size):
+        assert isinstance(name, str)
+        assert isinstance(input_size, numbers.Number)
+
         self._history.append(
             (self._category_time, name, input_size, self._steps),
         )
