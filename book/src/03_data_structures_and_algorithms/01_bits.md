@@ -1,9 +1,0 @@
-## Bits
-
-### Bit Parity
-
-![](images/bit-parity.png)
-
-### Bit Shift Operator
-
-![](images/bit-shift-operator.png)
