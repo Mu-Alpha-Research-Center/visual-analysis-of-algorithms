@@ -1,4 +1,4 @@
-# Algorithms Notebook ([PDF](book/output/algorithms-notebook.pdf))
+# Algorithms Notebook
 
 <p align="center">
   <table>
@@ -15,8 +15,7 @@
   </table>
 </p>
 
-## Development
+## Links
 
-- Install [Homebrew](https://brew.sh)
-- `make install`
-- `make test`
+- [algorithms-notebook.pdf](book/output/algorithms-notebook.pdf)
+- [Development](docs/development.md)
