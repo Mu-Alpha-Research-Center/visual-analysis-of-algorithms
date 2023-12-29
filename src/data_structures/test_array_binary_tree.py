@@ -26,6 +26,25 @@ class ArrayBinaryTree:
             return None
         return self.array[j]
 
+    def insert(self, n):
+        self.array.append(n)
+
+    def delete(self, n):
+        i = self.array.index(n)
+        del self.array[i]
+
+
+def test_insert():
+    tree = ArrayBinaryTree([1, 2, 3])
+    tree.insert(4)
+    assert tree.array == [1, 2, 3, 4]
+
+
+def test_delete():
+    tree = ArrayBinaryTree([1, 2, 3])
+    tree.delete(1)
+    assert tree.array == [2, 3]
+
 
 def test_getters():
     #     4
