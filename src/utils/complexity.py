@@ -4,7 +4,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.interpolate import make_interp_spline
+from scipy import interpolate
 
 plt.rcParams["font.family"] = "Menlo"
 
@@ -29,18 +29,17 @@ class Complexity:
         assert isinstance(name, str)
         assert isinstance(input_size, numbers.Number)
 
-        self._history.append(
+        sizeof_objects = sum(sys.getsizeof(o) for o in self._objects)
+
+        self._history += [
             (self._category_time, name, input_size, self._steps),
-        )
-        if len(self._objects) > 0:
-            self._history.append(
-                (
-                    self._category_space,
-                    name,
-                    input_size,
-                    sum(sys.getsizeof(o) for o in self._objects),
-                ),
-            )
+            (
+                self._category_space,
+                name,
+                input_size,
+                sizeof_objects,
+            ),
+        ]
         self._steps = 0
         self._objects = []
 
@@ -58,17 +57,11 @@ class Complexity:
             data[category][name]["y"].append(y)
 
         # Plot history data
-        if len(data[self._category_space]) == 0:
-            fig, ax_time = plt.subplots(1)
-            subplots = [
-                (self._category_time, ax_time, "input size", "steps"),
-            ]
-        else:
-            fig, axs = plt.subplots(2)
-            subplots = [
-                (self._category_time, axs[0], "input size", "steps"),
-                (self._category_space, axs[1], "input size", "bytes"),
-            ]
+        fig, axs = plt.subplots(2)
+        subplots = [
+            (self._category_time, axs[0], "input size", "steps"),
+            (self._category_space, axs[1], "input size", "bytes"),
+        ]
 
         if self._path is not None:
             fig.suptitle(self._path.name)
@@ -83,7 +76,7 @@ class Complexity:
                 y = np.array(values["y"])
                 try:
                     xsmooth = np.linspace(x.min(), x.max())
-                    ysmooth = make_interp_spline(x, y)(xsmooth)
+                    ysmooth = interpolate.make_interp_spline(x, y)(xsmooth)
                     ax.plot(
                         xsmooth,
                         ysmooth,
