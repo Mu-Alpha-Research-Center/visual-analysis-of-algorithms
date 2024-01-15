@@ -1,4 +1,4 @@
-# Algorithms Notebook
+# Visual Analysis of Algorithms
 
 <p align="center">
   <table>

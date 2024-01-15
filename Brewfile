@@ -1,5 +1,3 @@
-tap "homebrew/cask"
-
 brew "pandoc"
 brew "pyenv"
 
