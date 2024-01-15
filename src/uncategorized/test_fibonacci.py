@@ -11,24 +11,24 @@ class Solution(utils.BaseSolution):
         return self.recursive(n - 1) + self.recursive(n - 2)
 
     @cache
-    def recursive_cached(self, n: int):
+    def dynamic_top_down(self, n: int):
         self.complexity.store(cache)
         self.complexity.step()
         if n <= 1:
             return n
-        return self.recursive_cached(n - 1) + self.recursive_cached(n - 2)
+        return self.dynamic_top_down(n - 1) + self.dynamic_top_down(n - 2)
 
-    def dynamic_programming(self, n: int):
-        previous_previous = 0
-        previous = 1
-        self.complexity.store(previous_previous, previous)
+    def dynamic_bottom_up(self, n: int):
+        prev = 0
+        curr = 1
+        self.complexity.store(prev, curr)
         if n == 0:
             return n
         for _ in range(n - 1):
             self.complexity.step()
-            current = previous_previous + previous
-            (previous, previous_previous) = (current, previous)
-        return previous
+            next = prev + curr
+            (curr, prev) = (next, curr)
+        return curr
 
 
 def test_complexity():
