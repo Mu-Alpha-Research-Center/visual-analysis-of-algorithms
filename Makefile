@@ -2,7 +2,7 @@
 
 SRC_DIR = book
 OUT_DIR = $(SRC_DIR)/output
-PDF_PATH = $(OUT_DIR)/algorithms-notebook.pdf
+PDF_PATH = $(OUT_DIR)/visual-analysis-of-algorithms.pdf
 MARKDOWN_FILES = $(shell find book/src -name '*.md' | sort)
 PANDOC_FLAGS = \
 	--pdf-engine=pdflatex \

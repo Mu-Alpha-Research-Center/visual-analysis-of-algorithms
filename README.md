@@ -17,5 +17,5 @@
 
 ## Links
 
-- [algorithms-notebook.pdf](book/output/algorithms-notebook.pdf)
+- [visual-analysis-of-algorithms.pdf](book/output/visual-analysis-of-algorithms.pdf)
 - [Development](docs/development.md)
