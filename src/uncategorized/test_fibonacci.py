@@ -19,16 +19,26 @@ class Solution(utils.BaseSolution):
         return self.dynamic_top_down(n - 1) + self.dynamic_top_down(n - 2)
 
     def dynamic_bottom_up(self, n: int):
-        prev = 0
-        curr = 1
-        self.complexity.store(prev, curr)
-        if n == 0:
+        prev_fib = 0
+        curr_fib = 1
+        self.complexity.store(prev_fib, curr_fib)
+        if n <= 1:
             return n
         for _ in range(n - 1):
             self.complexity.step()
-            next = prev + curr
-            (curr, prev) = (next, curr)
-        return curr
+            next_fib = prev_fib + curr_fib
+            prev_fib = curr_fib
+            curr_fib = next_fib
+        return curr_fib
+
+
+def test_solutions():
+    s = Solution()
+    fib_seq = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+
+    for name, func in s.methods():
+        for n, expected in enumerate(fib_seq):
+            assert func(n) == expected, f"{name}"
 
 
 def test_complexity():
