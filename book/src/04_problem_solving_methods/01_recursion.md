@@ -8,16 +8,22 @@ The power of recursion evidently lies in the possibility of defining an infinite
 
 ### Fibonacci Sequence
 
-$F_{0} = 0$  
-$F_{1} = 1$  
-$F_{n} = F_{n-1}+F_{n-2}\qquad for\ n > 1$
+${\displaystyle f_{n}={
+    \begin{cases}
+        0,&{\mbox{if }}n{\mbox{ is 0}}\\
+        1,&{\mbox{if }}n{\mbox{ is 1}}\\
+        f_{n-1}+f_{n-2},&{\mbox{if }}n{\mbox{ is > 1}}
+    \end{cases}
+}}$
 
 ```python
 def fib(n: int) -> int:
-    if n <= 1:
-        return n
-
-    return fib(n-1) + fib(n-2)
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
 ```
 
 ### Binary Exponentiation
