@@ -10,7 +10,7 @@ class Solution(utils.BaseSolution):
         if n == 0:
             return 1
         elif n < 0:
-            return 1 / self.logarithmic(x, -n)
+            return self.logarithmic(1 / x, -n)
         elif n % 2 == 0:
             return self.logarithmic(x * x, n / 2)
         else:
@@ -24,6 +24,7 @@ def test_solutions():
         ([2, 2], 4),
         ([2, 10], 1024),
         ([2, -2], 0.25),
+        ([2, -4], 0.0625),
     ]
 
     for name, func in s.methods():

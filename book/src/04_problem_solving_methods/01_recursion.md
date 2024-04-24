@@ -22,4 +22,23 @@ def fib(n: int) -> int:
 
 ### Binary Exponentiation
 
-${\displaystyle x^{n}={\begin{cases}x\,(x^{2})^{(n-1)/2},&{\mbox{if }}n{\mbox{ is odd}}\\(x^{2})^{n/2},&{\mbox{if }}n{\mbox{ is even}}\end{cases}}}$
+${\displaystyle x^{n}={
+    \begin{cases}
+        1,&{\mbox{if }}n{\mbox{ is zero}}\\
+        \left({\frac {1}{x}}\right)^{\lvert {n} \rvert},&{\mbox{if }}n{\mbox{ is negative}}\\
+        x\,(x^{2})^{(n-1)/2},&{\mbox{if }}n{\mbox{ is odd}}\\
+        (x^{2})^{n/2},&{\mbox{if }}n{\mbox{ is even}}
+    \end{cases}
+}}$
+
+```python
+def pow(x: int, n: int) -> int:
+    if n == 0:
+        return 1
+    elif n < 0:
+        return pow(1 / x, abs(n))
+    elif n % 2 == 0:
+        return pow(x * x, n / 2)
+    else:
+        return x * pow(x * x, (n - 1) / 2)
+```
